@@ -1,0 +1,61 @@
+<Lab Name="011" Width="28.0" Height="14.0">
+  <Beacon X="10.0" Y="4.5" Height="2.0"/>
+  <Target X="10.0" Y="4.5" Radius="1.0"/>
+  <Wall Height="50.0">
+    <Corner X="4.2" Y="9.5"/>
+    <Corner X="3.5" Y="10.2"/>
+    <Corner X="4.2" Y="10.9"/>
+    <Corner X="4.9" Y="10.2"/>
+    <Corner X="4.3" Y="9.6"/>
+  </Wall>
+  <Wall Height="1.0">
+    <Corner X="4.1" Y="6.2"/>
+    <Corner X="3.4" Y="6.9"/>
+    <Corner X="4.1" Y="7.6"/>
+    <Corner X="4.8" Y="6.9"/>
+    <Corner X="4.2" Y="6.3"/>
+  </Wall>
+  <Wall Height="50.0">
+    <Corner X="4.1" Y="3.0"/>
+    <Corner X="3.4" Y="3.7"/>
+    <Corner X="4.1" Y="4.4"/>
+    <Corner X="4.8" Y="3.7"/>
+    <Corner X="4.2" Y="3.1"/>
+  </Wall>
+  <Wall Height="50.0">
+    <Corner X="24.6" Y="6.4"/>
+    <Corner X="24.6" Y="3.9"/>
+    <Corner X="24.6" Y="1.8"/>
+    <Corner X="6.7" Y="1.8"/>
+    <Corner X="6.7" Y="12.3"/>
+    <Corner X="24.5" Y="12.3"/>
+    <Corner X="24.5" Y="9.0"/>
+    <Corner X="23.8" Y="9.0"/>
+    <Corner X="23.8" Y="11.8"/>
+    <Corner X="7.4" Y="11.8"/>
+    <Corner X="7.4" Y="2.3"/>
+    <Corner X="23.8" Y="2.3"/>
+    <Corner X="23.8" Y="6.4"/>
+  </Wall>
+  <Wall Height="1.0">
+    <Corner X="21.8" Y="5.9"/>
+    <Corner X="21.8" Y="4.2"/>
+    <Corner X="21.2" Y="3.6"/>
+    <Corner X="18.7" Y="3.6"/>
+    <Corner X="16.2" Y="6.1"/>
+    <Corner X="14.0" Y="6.1"/>
+    <Corner X="10.9" Y="9.2"/>
+    <Corner X="11.5" Y="9.8"/>
+    <Corner X="14.4" Y="6.8"/>
+    <Corner X="16.2" Y="6.8"/>
+    <Corner X="16.2" Y="9.0"/>
+    <Corner X="16.8" Y="9.6"/>
+    <Corner X="19.1" Y="9.6"/>
+    <Corner X="19.1" Y="8.7"/>
+    <Corner X="17.1" Y="8.7"/>
+    <Corner X="17.1" Y="6.4"/>
+    <Corner X="19.1" Y="4.4"/>
+    <Corner X="21.0" Y="4.4"/>
+    <Corner X="21.0" Y="5.9"/>
+  </Wall>
+</Lab>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>cbManageRobots</class>
+ <widget class="QWidget" name="cbManageRobots">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>575</width>
+    <height>323</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manage Robots</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="default.qrc">
+    <normaloff>:/images/buttons/mouse</normaloff>:/images/buttons/mouse</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox_Agents">
+     <property name="title">
+      <string>Select a Robotic Agent</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="pushButton_LoadAgent">
+        <property name="text">
+         <string>Load Agent</string>
+        </property>
+        <property name="icon">
+         <iconset resource="default.qrc">
+          <normaloff>:/images/buttons/open</normaloff>:/images/buttons/open</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButton_RemoveAgent">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Remove Selected</string>
+        </property>
+        <property name="icon">
+         <iconset resource="default.qrc">
+          <normaloff>:/images/buttons/delete</normaloff>:/images/buttons/delete</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QListView" name="listView_Agents">
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="2">
+    <widget class="QGroupBox" name="groupBox_Registered">
+     <property name="title">
+      <string>Registered Robots</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QTableWidget" name="tableWidget_Robots">
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::ExtendedSelection</enum>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <property name="showGrid">
+         <bool>false</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>false</bool>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderHighlightSections">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderCascadingSectionResizes">
+         <bool>true</bool>
+        </attribute>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_DeleteRobot">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Delete Selected Robot(s)</string>
+        </property>
+        <property name="icon">
+         <iconset resource="default.qrc">
+          <normaloff>:/images/buttons/delete</normaloff>:/images/buttons/delete</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="groupBox_AddRobot">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>Add Robot</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_1">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_1">
+        <property name="text">
+         <string>Agent</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label_Agent">
+        <property name="text">
+         <string>NO AGENT SELECTED</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_Name"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Position</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="comboBox_Position">
+        <property name="insertPolicy">
+         <enum>QComboBox::InsertAlphabetically</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QPushButton" name="pushButton_AddRobot">
+        <property name="text">
+         <string>Add Robot</string>
+        </property>
+        <property name="icon">
+         <iconset resource="default.qrc">
+          <normaloff>:/images/buttons/add</normaloff>:/images/buttons/add</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QPushButton" name="pushButton_Close">
+     <property name="text">
+      <string>Hide</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="default.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>lineEdit_Name</sender>
+   <signal>returnPressed()</signal>
+   <receiver>pushButton_AddRobot</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>237</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>146</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Close</sender>
+   <signal>clicked()</signal>
+   <receiver>cbManageRobots</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>287</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>287</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

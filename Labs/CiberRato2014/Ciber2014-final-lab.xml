@@ -1,0 +1,49 @@
+<Lab Name="CiberRato2014 Final 2" Height="14.00" Width="28.00">
+<Beacon X="25.00" Y="11.00" Height="2.00"/>
+<Target X="25.00" Y="11.00" Radius="2.00"/>
+<Target X="4.50" Y="11.50" Radius="2.00"/>
+<Wall Height="1.00">
+<Corner X="9.00" Y="14.00"/>
+<Corner X="9.00" Y="8.00"/>
+<Corner X="9.50" Y="8.00"/>
+<Corner X="9.50" Y="14.00"/>
+</Wall>
+<Wall Height="1.00">
+<Corner X="22.00" Y="6.50"/>
+<Corner X="28.00" Y="6.50"/>
+<Corner X="28.00" Y="7.00"/>
+<Corner X="22.00" Y="7.00"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="25.00" Y="2.00"/>
+<Corner X="5.50" Y="2.00"/>
+<Corner X="5.50" Y="2.50"/>
+<Corner X="25.00" Y="2.50"/>
+</Wall>
+<Wall Height="1.00">
+<Corner X="17.60" Y="14.00"/>
+<Corner X="17.60" Y="8.00"/>
+<Corner X="18.10" Y="8.00"/>
+<Corner X="18.10" Y="14.00"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="13.30" Y="11.40"/>
+<Corner X="13.30" Y="5.40"/>
+<Corner X="13.80" Y="5.40"/>
+<Corner X="13.80" Y="11.40"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="21.50" Y="8.50"/>
+<Corner X="21.50" Y="6.50"/>
+<Corner X="22.00" Y="6.50"/>
+<Corner X="22.00" Y="8.50"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="5.50" Y="4.90"/>
+<Corner X="0.00" Y="4.90"/>
+<Corner X="0.00" Y="5.40"/>
+<Corner X="4.10" Y="5.40"/>
+<Corner X="5.10" Y="5.40"/>
+<Corner X="5.50" Y="5.40"/>
+</Wall>
+</Lab>

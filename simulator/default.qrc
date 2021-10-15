@@ -1,0 +1,83 @@
+<RCC>
+    <qresource prefix="/images/buttons">
+        <file alias="color_high">skins/default/icons/brick_wall.png</file>
+        <file alias="color_low">skins/default/icons/brick_wall_low.png</file>
+        <file alias="collisions_off">skins/default/icons/collisions_off.png</file>
+        <file alias="collisions_on">skins/default/icons/collisions_on.png</file>
+        <file alias="connect">skins/default/icons/connect.png</file>
+        <file alias="disconnect">skins/default/icons/disconnect.png</file>
+        <file alias="add">skins/default/icons/edit_add.png</file>
+        <file alias="delete">skins/default/icons/edit_remove.png</file>
+        <file alias="exit">skins/default/icons/Gnome-Application-Exit-32.png</file>
+        <file alias="defaults">skins/default/icons/Gnome-Emblem-Default-32.png</file>
+        <file alias="open">skins/default/icons/Gnome-Folder-Open-32.png</file>
+        <file alias="config">skins/default/icons/Gnome-Preferences-System-32.png</file>
+        <file alias="panel">skins/default/icons/Gnome-Preferences-System-Windows-32.png</file>
+        <file alias="time_on">skins/default/icons/hourglass.png</file>
+        <file alias="time_off">skins/default/icons/hourglass_delete.png</file>
+        <file alias="lab">skins/default/icons/lab.png</file>
+        <file alias="mouse">skins/default/icons/mouse_32.png</file>
+        <file alias="skin">skins/default/icons/preferences_desktop_theme.png</file>
+        <file alias="sound_on">skins/default/icons/sound.png</file>
+        <file alias="sound_off">skins/default/icons/sound_mute.png</file>
+        <file alias="lock_closed">skins/default/icons/stock_lock.png</file>
+        <file alias="lock_open">skins/default/icons/stock_lock_open.png</file>
+        <file alias="viewer_close">skins/default/icons/TV Off.png</file>
+        <file alias="viewer_open">skins/default/icons/TV On.png</file>
+        <file alias="save">skins/default/icons/Gnome-Media-Floppy-32.png</file>
+    </qresource>
+    <qresource prefix="/images/icons">
+        <file alias="message">skins/default/icons/Gnome-Emblem-Mail-32.png</file>
+        <file alias="score">skins/default/icons/games_highscores.png</file>
+        <file alias="beacon">skins/default/beacon.png</file>
+    </qresource>
+    <qresource prefix="/images/control">
+        <file alias="reset">skins/default/icons/Gnome-System-Shutdown-32.png</file>
+        <file alias="start">skins/default/start.png</file>
+        <file alias="stop">skins/default/stop.png</file>
+        <file alias="remove">skins/default/remove.png</file>
+    </qresource>
+    <qresource prefix="/images/backgrounds">
+        <file alias="init">skins/default/bg1/bg0000.png</file>
+        <file alias="game">skins/default/bg2/bg0000.png</file>
+    </qresource>
+    <qresource prefix="/images/robot/rob1">
+        <file alias="normal">skins/default/rob1/rob.png</file>
+        <file alias="collision">skins/default/rob1/robc.png</file>
+        <file alias="return">skins/default/rob1/robr.png</file>
+    </qresource>
+    <qresource prefix="/images/robot/rob2">
+        <file alias="normal">skins/default/rob2/rob.png</file>
+        <file alias="collision">skins/default/rob2/robc.png</file>
+        <file alias="return">skins/default/rob2/robr.png</file>
+    </qresource>
+    <qresource prefix="/images/robot/rob3">
+        <file alias="normal">skins/default/rob3/rob.png</file>
+        <file alias="collision">skins/default/rob3/robc.png</file>
+        <file alias="return">skins/default/rob3/robr.png</file>
+    </qresource>
+    <qresource prefix="/images/robot/rob4">
+        <file alias="normal">skins/default/rob4/rob.png</file>
+        <file alias="collision">skins/default/rob4/robc.png</file>
+        <file alias="return">skins/default/rob4/robr.png</file>
+    </qresource>
+    <qresource prefix="/images/robot/rob5">
+        <file alias="normal">skins/default/rob5/rob.png</file>
+        <file alias="collision">skins/default/rob5/robc.png</file>
+        <file alias="return">skins/default/rob5/robr.png</file>
+    </qresource>
+    <qresource prefix="/images/robot/states">
+        <file alias="finished">skins/default/states/finished.png</file>
+        <file alias="removed">skins/default/states/removed.png</file>
+        <file alias="returning">skins/default/states/returning.png</file>
+        <file alias="running">skins/default/states/running.png</file>
+        <file alias="stopped">skins/default/states/stopped.png</file>
+        <file alias="waiting">skins/default/states/waiting.png</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file alias="begin">sounds/begin.wav</file>
+        <file alias="collision">sounds/collision.wav</file>
+        <file alias="finished">sounds/finished.wav</file>
+        <file alias="first">sounds/first.wav</file>
+    </qresource>
+</RCC>

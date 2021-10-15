@@ -1,0 +1,5 @@
+<Parameters SimTime="1800" CycleTime="80"
+		CompassNoise="0" BeaconNoise="0" ObstacleNoise="0"
+		MotorsNoise="0" KeyTime="1350"
+		GPS="Off" ShowActions="False" NBeacons="2" 
+/>

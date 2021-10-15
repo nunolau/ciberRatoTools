@@ -1,0 +1,101 @@
+<Lab Name="lab de teste" Height="14.00" Width="28.00">
+<Beacon X="11.50" Y="4.00" Height="2.00"/>
+<Target X="11.50" Y="4.00" Radius="1.00"/>
+<Beacon X="16.50" Y="4.00" Height="2.00"/>
+<Target X="16.50" Y="4.00" Radius="1.00"/>
+<Wall Height="3.00">
+<Corner X="6.00" Y="7.00"/>
+<Corner X="7.00" Y="7.00"/>
+<Corner X="7.00" Y="6.00"/>
+<Corner X="6.00" Y="6.00"/>
+</Wall>
+<Wall Height="1.00">
+<Corner X="10.00" Y="10.50"/>
+<Corner X="8.00" Y="10.50"/>
+<Corner X="8.00" Y="11.50"/>
+<Corner X="7.50" Y="11.50"/>
+<Corner X="7.50" Y="10.50"/>
+<Corner X="3.50" Y="10.50"/>
+<Corner X="3.50" Y="10.00"/>
+<Corner X="9.50" Y="10.00"/>
+<Corner X="9.50" Y="8.50"/>
+<Corner X="18.50" Y="8.50"/>
+<Corner X="18.50" Y="10.00"/>
+<Corner X="24.50" Y="10.00"/>
+<Corner X="24.50" Y="10.50"/>
+<Corner X="20.50" Y="10.50"/>
+<Corner X="20.50" Y="11.50"/>
+<Corner X="20.00" Y="11.50"/>
+<Corner X="20.00" Y="10.50"/>
+<Corner X="18.00" Y="10.50"/>
+<Corner X="18.00" Y="9.00"/>
+<Corner X="10.00" Y="9.00"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="21.00" Y="7.00"/>
+<Corner X="22.00" Y="7.00"/>
+<Corner X="22.00" Y="6.00"/>
+<Corner X="21.00" Y="6.00"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="3.50" Y="10.00"/>
+<Corner X="9.50" Y="10.00"/>
+<Corner X="9.50" Y="8.50"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="18.50" Y="8.50"/>
+<Corner X="18.50" Y="10.00"/>
+<Corner X="24.50" Y="10.00"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="0.00" Y="8.00"/>
+<Corner X="3.00" Y="8.00"/>
+<Corner X="3.50" Y="7.50"/>
+<Corner X="3.00" Y="7.00"/>
+<Corner X="0.00" Y="7.00"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="28.00" Y="8.00"/>
+<Corner X="25.00" Y="8.00"/>
+<Corner X="24.50" Y="7.50"/>
+<Corner X="25.00" Y="7.00"/>
+<Corner X="28.00" Y="7.00"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="3.00" Y="2.00"/>
+<Corner X="11.50" Y="2.00"/>
+<Corner X="11.50" Y="1.50"/>
+<Corner X="3.00" Y="1.50"/>
+</Wall>
+<Wall Height="1.00">
+<Corner X="9.50" Y="3.50"/>
+<Corner X="3.00" Y="3.50"/>
+<Corner X="3.00" Y="5.00"/>
+<Corner X="3.50" Y="5.00"/>
+<Corner X="3.50" Y="4.00"/>
+<Corner X="9.00" Y="4.00"/>
+<Corner X="9.00" Y="6.00"/>
+<Corner X="19.00" Y="6.00"/>
+<Corner X="19.00" Y="4.00"/>
+<Corner X="24.00" Y="4.00"/>
+<Corner X="24.00" Y="5.00"/>
+<Corner X="24.50" Y="5.00"/>
+<Corner X="24.50" Y="3.50"/>
+<Corner X="18.50" Y="3.50"/>
+<Corner X="18.50" Y="5.50"/>
+<Corner X="9.50" Y="5.50"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="17.00" Y="2.00"/>
+<Corner X="24.50" Y="2.00"/>
+<Corner X="24.50" Y="1.50"/>
+<Corner X="17.00" Y="1.50"/>
+</Wall>
+<Wall Height="1.00">
+<Corner X="13.50" Y="5.50"/>
+<Corner X="14.50" Y="5.50"/>
+<Corner X="14.50" Y="3.00"/>
+<Corner X="14.00" Y="2.50"/>
+<Corner X="13.50" Y="3.00"/>
+</Wall>
+</Lab>

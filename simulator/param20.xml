@@ -1,0 +1,13 @@
+<Parameters SimTime="1800" CycleTime="25"
+		CompassNoise="2" BeaconNoise="2" ObstacleNoise="0.1"
+		MotorsNoise="1.5" KeyTime="1350"
+		GPS="Off" ScoreSensor="Off" ShowActions="False" NBeacons="1" 
+		RequestsPerCycle="20" 
+		ObstacleRequestable="On" BeaconRequestable="On" 
+		GroundRequestable="On" CompassRequestable="On"
+		CollisionRequestable="Off"
+		ObstacleLatency="1" BeaconLatency="5" 
+		GroundLatency="1" CompassLatency="5"
+		CollisionLatency="1"
+		BeaconAperture="3.141593"
+/>

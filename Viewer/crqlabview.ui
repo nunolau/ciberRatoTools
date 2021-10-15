@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CRQLabView</class>
+ <widget class="QMainWindow" name="CRQLabView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_Central">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QGraphicsView" name="graphicsView_lab">
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionConnect"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>&amp;Options</string>
+    </property>
+    <addaction name="actionChange_skin"/>
+    <addaction name="actionLower_walls_color"/>
+    <addaction name="actionHigher_walls_collor"/>
+    <addaction name="separator"/>
+    <addaction name="actionSound_On_Off"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuOptions"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>ToolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionConnect"/>
+   <addaction name="separator"/>
+   <addaction name="actionStart"/>
+   <addaction name="actionChange_skin"/>
+   <addaction name="actionHigher_walls_collor"/>
+   <addaction name="actionLower_walls_color"/>
+   <addaction name="separator"/>
+   <addaction name="actionSound_On_Off"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_Score">
+   <property name="windowIcon">
+    <iconset>
+     <normaloff>:/window/scores</normaloff>:/window/scores</iconset>
+   </property>
+   <property name="windowTitle">
+    <string>ScoreBoard</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_Score">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="scoreLayout"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About...</string>
+   </property>
+  </action>
+  <action name="actionReset_Viewer">
+   <property name="text">
+    <string>&amp;Reset Viewer</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionConnect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="default.qrc">
+     <normaloff>:/images/buttons/disconnect</normaloff>
+     <normalon>:/images/buttons/connect</normalon>:/images/buttons/disconnect</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Connect</string>
+   </property>
+   <property name="toolTip">
+    <string>Connect</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="default.qrc">
+     <normaloff>:/images/buttons/exit</normaloff>:/images/buttons/exit</iconset>
+   </property>
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionLower_walls_color">
+   <property name="icon">
+    <iconset resource="default.qrc">
+     <normaloff>:/images/buttons/color_low</normaloff>:/images/buttons/color_low</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Lower walls color</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionHigher_walls_collor">
+   <property name="icon">
+    <iconset resource="default.qrc">
+     <normaloff>:/images/buttons/color_high</normaloff>:/images/buttons/color_high</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Higher walls collor</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actionSound_On_Off">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="default.qrc">
+     <normaloff>:/images/buttons/sound_on</normaloff>
+     <normalon>:/images/buttons/sound_off</normalon>:/images/buttons/sound_on</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Sound is on</string>
+   </property>
+   <property name="toolTip">
+    <string>Mute</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionChange_skin">
+   <property name="icon">
+    <iconset resource="default.qrc">
+     <normaloff>:/images/buttons/skin</normaloff>:/images/buttons/skin</iconset>
+   </property>
+   <property name="text">
+    <string>Change s&amp;kin</string>
+   </property>
+   <property name="toolTip">
+    <string>Change skin</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>&amp;Help</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionStart">
+   <property name="icon">
+    <iconset>
+     <normalon>:/images/control/start</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Start</string>
+   </property>
+   <property name="toolTip">
+    <string>Start</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="default.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>CRQLabView</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>334</x>
+     <y>176</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

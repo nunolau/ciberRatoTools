@@ -1,0 +1,98 @@
+<Lab Name="Labirinto 2005, manga 1a" Width="28" Height="14">
+	<Beacon X="25" Y="3" Height="2.0"/>
+	<Target X="25" Y="3" Radius="1.5"/>
+
+	<Wall Height="3.0">
+		<Corner X="0" Y="14"/>
+		<Corner X="0" Y="9.5"/>
+		<Corner X="1.5" Y="9.5"/>
+		<Corner X="1.5" Y="11.5"/>
+		<Corner X="4" Y="11.5"/>
+		<Corner X="4" Y="14"/>
+	</Wall>
+
+	<Wall Height="1.0">
+		<Corner X="7" Y="14"/>
+		<Corner X="7" Y="11.5"/>
+		<Corner X="7.5" Y="11.5"/>
+		<Corner X="7.5" Y="14"/>
+	</Wall>
+
+	<Wall Height="3.0">
+		<Corner X="13.5" Y="14"/>
+		<Corner X="13.5" Y="11.5"/>
+		<Corner X="14.5" Y="11.5"/>
+		<Corner X="14.5" Y="14"/>
+	</Wall>
+
+	<Wall Height="1.0">
+		<Corner X="24.5" Y="14"/>
+		<Corner X="24.5" Y="11.5"/>
+		<Corner X="25" Y="11.5"/>
+		<Corner X="25" Y="14"/>
+	</Wall>
+
+	<Wall Height="3.0">
+		<Corner X="7" Y="0"/>
+		<Corner X="7" Y="3"/>
+		<Corner X="6" Y="5.5"/>
+		<Corner X="6" Y="7"/>
+		<Corner X="6.5" Y="7"/>
+		<Corner X="6.5" Y="5.5"/>
+		<Corner X="7.5" Y="3"/>
+		<Corner X="7.5" Y="0"/>
+	</Wall>
+
+	<Wall Height="1.0">
+		<Corner X="11.6578" Y="5.9333"/>
+		<Corner X="11.4" Y="6.9"/>
+		<Corner X="9.4644" Y="6.3844"/>
+		<Corner X="9.3356" Y="6.8644"/>
+		<Corner X="11.2667" Y="7.3822"/>
+		<Corner X="10.7489" Y="9.3133"/>
+		<Corner X="11.2378" Y="9.4467"/>
+		<Corner X="11.7533" Y="7.5111"/>
+		<Corner X="12.7178" Y="7.7711"/>
+		<Corner X="12.8467" Y="7.2844"/>
+		<Corner X="11.8822" Y="7.0289"/>
+		<Corner X="12.1378" Y="6.0644"/>
+	</Wall>
+
+	<Wall Height="1.0">
+		<Corner X="15.8200" Y="5.5067"/>
+		<Corner X="16.3378" Y="3.5733"/>
+		<Corner X="18.2689" Y="4.0911"/>
+		<Corner X="18.3978" Y="3.6089"/>
+		<Corner X="16.4667" Y="3.0911"/>
+		<Corner X="16.7244" Y="2.1244"/>
+		<Corner X="16.2422" Y="1.9956"/>
+		<Corner X="15.9844" Y="2.9622"/>
+		<Corner X="15.0178" Y="2.7022"/>
+		<Corner X="14.8889" Y="3.1867"/>
+		<Corner X="15.8533" Y="3.4444"/>
+		<Corner X="15.4200" Y="5.3067"/>
+	</Wall>
+
+	<Wall Height="1.0">
+		<Corner X="21.1600" Y="10.2622"/>
+		<Corner X="20.4600" Y="9.5511"/>
+		<Corner X="21.8733" Y="8.1378"/>
+		<Corner X="21.5200" Y="7.7867"/>
+		<Corner X="20.1000" Y="9.2000"/>
+		<Corner X="18.6867" Y="7.7889"/>
+		<Corner X="18.3356" Y="8.1400"/>
+		<Corner X="19.7489" Y="9.5533"/>
+		<Corner X="19.0422" Y="10.2578"/>
+		<Corner X="19.3956" Y="10.6133"/>
+		<Corner X="20.1022" Y="9.9067"/>
+		<Corner X="20.8133" Y="10.6111"/>
+	</Wall>
+
+	<Wall Height="1.0">
+		<Corner X="22" Y="0"/>
+		<Corner X="22" Y="8.5"/>
+		<Corner X="21.5" Y="8.5"/>
+		<Corner X="21.5" Y="0"/>
+	</Wall>
+
+</Lab>

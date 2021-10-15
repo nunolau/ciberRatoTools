@@ -1,0 +1,37 @@
+<Lab Name="Ciber-Rato 1999" Width="17.5" Height="17.5">
+    <Beacon X="10.5" Y="9" Height="2.0" />
+    <Target X="10.5" Y="9" Radius="2.0" />
+
+    <Wall Height="1.0">
+        <Corner X="4.5" Y="0" />
+        <Corner X="4.5" Y="9" />
+        <Corner X="3.5" Y="9" />
+        <Corner X="3.5" Y="0" />
+    </Wall>
+
+    <Wall Height="1.0">
+        <Corner X="12" Y="4" />
+        <Corner X="12" Y="5" />
+        <Corner X="8" Y="5" />
+        <Corner X="8" Y="12.5" />
+        <Corner X="12" Y="12.5" />
+        <Corner X="12" Y="13.5" />
+        <Corner X="7" Y="13.5" />
+        <Corner X="7" Y="4" />
+    </Wall>
+
+    <Wall Height="1.0">
+        <Corner X="14.8" Y="4" />
+        <Corner X="14.8" Y="8" />
+        <Corner X="13.8" Y="8" />
+        <Corner X="13.8" Y="4" />
+    </Wall>
+
+    <Wall Height="1.0">
+        <Corner X="14.8" Y="13.5" />
+        <Corner X="13.8" Y="13.5" />
+        <Corner X="13.8" Y="10" />
+        <Corner X="14.8" Y="10" />
+    </Wall>
+
+</Lab>

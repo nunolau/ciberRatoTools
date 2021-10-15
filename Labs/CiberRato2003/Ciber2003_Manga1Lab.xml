@@ -1,0 +1,40 @@
+<Lab Name="007" Width="28.0" Height="14.0">
+  <Beacon X="15.7" Y="6.9" Height="2.0"/>
+  <Target X="15.7" Y="6.9" Radius="1.5"/>
+  <Wall Height="1.0">
+    <Corner X="13.1" Y="11.2"/>
+    <Corner X="14.1" Y="11.2"/>
+    <Corner X="14.1" Y="2.8"/>
+    <Corner X="13.1" Y="2.8"/>
+  </Wall>
+  <Wall Height="50.0">
+    <Corner X="13.1" Y="7.4"/>
+    <Corner X="13.1" Y="6.4"/>
+    <Corner X="7.3" Y="6.4"/>
+    <Corner X="7.3" Y="7.4"/>
+  </Wall>
+  <Wall Height="1.0">
+    <Corner X="7.3" Y="9.7"/>
+    <Corner X="7.3" Y="3.9"/>
+    <Corner X="6.4" Y="3.9"/>
+    <Corner X="6.4" Y="9.7"/>
+  </Wall>
+  <Wall Height="50.0">
+    <Corner X="10.5" Y="2.0"/>
+    <Corner X="19.3" Y="2.0"/>
+    <Corner X="19.3" Y="2.8"/>
+    <Corner X="10.5" Y="2.8"/>
+  </Wall>
+  <Wall Height="50.0">
+    <Corner X="10.7" Y="11.2"/>
+    <Corner X="19.5" Y="11.2"/>
+    <Corner X="19.5" Y="12.0"/>
+    <Corner X="10.7" Y="12.0"/>
+  </Wall>
+  <Wall Height="50.0">
+    <Corner X="21.9" Y="11.7"/>
+    <Corner X="22.9" Y="11.7"/>
+    <Corner X="22.9" Y="2.3"/>
+    <Corner X="21.9" Y="2.3"/>
+  </Wall>
+</Lab>

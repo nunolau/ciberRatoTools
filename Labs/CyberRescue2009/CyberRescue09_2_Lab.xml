@@ -1,0 +1,152 @@
+<Lab Name="lab de teste" Height="14" Width="28">
+	<Beacon X="24" Y="3" Height="2"/>
+	<Target X="24" Y="3" Radius="2"/>
+	<Wall Height="3">
+		<Corner X="28" Y="7.2"/>
+		<Corner X="26" Y="7.2"/>
+		<Corner X="26" Y="6.8"/>
+		<Corner X="28" Y="6.8"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="18" Y="6.8"/>
+		<Corner X="19.8" Y="6.8"/>
+		<Corner X="19.8" Y="5"/>
+		<Corner X="20.2" Y="5"/>
+		<Corner X="20.2" Y="6.8"/>
+		<Corner X="22" Y="6.8"/>
+		<Corner X="22" Y="7.2"/>
+		<Corner X="20.2" Y="7.2"/>
+		<Corner X="20.2" Y="9"/>
+		<Corner X="19.8" Y="9"/>
+		<Corner X="19.8" Y="7.2"/>
+		<Corner X="18" Y="7.2"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="9.8" Y="14"/>
+		<Corner X="9.8" Y="12"/>
+		<Corner X="10.2" Y="12"/>
+		<Corner X="10.2" Y="14"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="6" Y="11"/>
+		<Corner X="6" Y="14"/>
+		<Corner X="4" Y="14"/>
+		<Corner X="4" Y="11"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="17" Y="4"/>
+		<Corner X="16.5" Y="4.5"/>
+		<Corner X="13.5" Y="4.5"/>
+		<Corner X="13" Y="4"/>
+		<Corner X="13" Y="3"/>
+		<Corner X="13.5" Y="2.5"/>
+		<Corner X="16.5" Y="2.5"/>
+		<Corner X="17" Y="3"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="25" Y="14"/>
+		<Corner X="25" Y="13"/>
+		<Corner X="25.3" Y="12.7"/>
+		<Corner X="25.7" Y="12.7"/>
+		<Corner X="26" Y="13"/>
+		<Corner X="26" Y="14"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="22.2" Y="14"/>
+		<Corner X="22.2" Y="13"/>
+		<Corner X="22.5" Y="12.7"/>
+		<Corner X="22.9" Y="12.7"/>
+		<Corner X="23.2" Y="13"/>
+		<Corner X="23.2" Y="14"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="28" Y="11"/>
+		<Corner X="27.6" Y="11"/>
+		<Corner X="27.3" Y="10.7"/>
+		<Corner X="27.3" Y="10.3"/>
+		<Corner X="27.6" Y="10"/>
+		<Corner X="28" Y="10"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="12" Y="7.2"/>
+		<Corner X="12" Y="7.5"/>
+		<Corner X="11" Y="7.5"/>
+		<Corner X="10.5" Y="8"/>
+		<Corner X="10.5" Y="9"/>
+		<Corner X="10.2" Y="9"/>
+		<Corner X="10.2" Y="7.2"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="10.2" Y="14"/>
+		<Corner X="10.2" Y="12"/>
+		<Corner X="10.5" Y="12"/>
+		<Corner X="10.5" Y="13.2"/>
+		<Corner X="11" Y="13.7"/>
+		<Corner X="12" Y="13.7"/>
+		<Corner X="12" Y="14"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="10.2" Y="0"/>
+		<Corner X="10.2" Y="6.8"/>
+		<Corner X="12" Y="6.8"/>
+		<Corner X="12" Y="7.2"/>
+		<Corner X="10.2" Y="7.2"/>
+		<Corner X="10.2" Y="9"/>
+		<Corner X="9.8" Y="9"/>
+		<Corner X="9.8" Y="0"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="9.8" Y="6.5"/>
+		<Corner X="9" Y="6.5"/>
+		<Corner X="8.5" Y="6"/>
+		<Corner X="8.5" Y="3"/>
+		<Corner X="9" Y="2.5"/>
+		<Corner X="9.8" Y="2.5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="19.8" Y="14"/>
+		<Corner X="19.8" Y="12"/>
+		<Corner X="20.2" Y="12"/>
+		<Corner X="20.2" Y="14"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="16" Y="11"/>
+		<Corner X="15.5" Y="11.5"/>
+		<Corner X="14.5" Y="11.5"/>
+		<Corner X="14" Y="11"/>
+		<Corner X="14" Y="10"/>
+		<Corner X="14.5" Y="9.5"/>
+		<Corner X="15.5" Y="9.5"/>
+		<Corner X="16" Y="10"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="19.8" Y="7.2"/>
+		<Corner X="19.8" Y="9"/>
+		<Corner X="19.5" Y="9"/>
+		<Corner X="19.5" Y="8"/>
+		<Corner X="19" Y="7.5"/>
+		<Corner X="18" Y="7.5"/>
+		<Corner X="18" Y="7.2"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="18" Y="14"/>
+		<Corner X="18" Y="13.7"/>
+		<Corner X="19" Y="13.7"/>
+		<Corner X="19.5" Y="13.2"/>
+		<Corner X="19.5" Y="12"/>
+		<Corner X="19.8" Y="12"/>
+		<Corner X="19.8" Y="14"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="19.8" Y="2"/>
+		<Corner X="19.8" Y="0"/>
+		<Corner X="20.2" Y="0"/>
+		<Corner X="20.2" Y="2"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="1" Y="7.6"/>
+		<Corner X="1" Y="10.6"/>
+		<Corner X="0" Y="10.6"/>
+		<Corner X="0" Y="7.6"/>
+	</Wall>
+</Lab>

@@ -1,0 +1,10 @@
+<Viewer
+	Host="localhost"
+	Port="6000"
+	Lowercolor="blue"
+	Highercolor="blue"
+	BackImage=""
+	Control="n"
+	AutoConnect="y"
+	AutoStart="y"
+/>

@@ -1,0 +1,53 @@
+<Lab Name="Ciber-Rato 2002 Manga 3" Height="17.5" Width="17.5">
+	<Beacon X="12.5" Y="10.5" Height="10"/>
+	<Target X="12.5" Y="11.5" Radius="2.0"/>
+	<Wall Height="15.0">
+		<Corner X="2.0" Y="10.5"/>
+		<Corner X="2.0" Y="11.0"/>
+		<Corner X="0.0" Y="11.0"/>
+		<Corner X="0.0" Y="10.5"/>
+	</Wall>
+	<Wall Height="5.0">
+		<Corner X="5.0" Y="11.5"/>
+		<Corner X="6.5" Y="13.0"/>
+		<Corner X="9.0" Y="13.0"/>
+		<Corner X="9.0" Y="5.5"/>
+		<Corner X="9.5" Y="5.5"/>
+		<Corner X="9.5" Y="9.5"/>
+		<Corner X="15.5" Y="9.5"/>
+		<Corner X="15.5" Y="8.0"/>
+		<Corner X="16.0" Y="8.0"/>
+		<Corner X="16.0" Y="15.0"/>
+		<Corner X="15.5" Y="15.0"/>
+		<Corner X="15.5" Y="10.0"/>
+		<Corner X="9.5" Y="10.0"/>
+		<Corner X="9.5" Y="15.0"/>
+		<Corner X="6.0" Y="15.0"/>
+		<Corner X="6.0" Y="13.5"/>
+		<Corner X="4.5" Y="12.0"/>
+	</Wall>
+	<Wall Height="15.0">
+		<Corner X="9.0" Y="13.5"/>
+		<Corner X="9.0" Y="14.5"/>
+		<Corner X="6.5" Y="14.5"/>
+		<Corner X="6.5" Y="13.5"/>
+	</Wall>
+	<Wall Height="15.0">
+		<Corner X="13.0" Y="5.5"/>
+		<Corner X="13.0" Y="8.0"/>
+		<Corner X="12.0" Y="8.0"/>
+		<Corner X="12.0" Y="5.5"/>
+	</Wall>
+	<Wall Height="15.0">
+		<Corner X="15.0" Y="3.5"/>
+		<Corner X="15.0" Y="4.0"/>
+		<Corner X="10.0" Y="4.0"/>
+		<Corner X="10.0" Y="3.5"/>
+	</Wall>
+	<Wall Height="15.0">
+		<Corner X="6.0" Y="2.0"/>
+		<Corner X="6.5" Y="2.5"/>
+		<Corner X="2.0" Y="7.0"/>
+		<Corner X="1.5" Y="6.5"/>
+	</Wall>
+</Lab>

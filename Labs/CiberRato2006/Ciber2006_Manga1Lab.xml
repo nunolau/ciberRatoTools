@@ -1,0 +1,54 @@
+<Lab Name="Ciber2006, Manga1" Width="28.0" Height="14.0">
+	<Beacon X="16.2" Y="3.5" Height="2.0"/>
+	<Beacon X="16.2" Y="10.5" Height="2.0"/>
+	<Target X="16.2" Y="3.5" Radius="1.0"/>
+	<Target X="16.2" Y="10.5" Radius="1.0"/>
+	<Wall Height="1.0">
+		<Corner X="12.0" Y="9.0"/>
+		<Corner X="20.5" Y="9.0"/>
+		<Corner X="20.5" Y="8.5"/>
+		<Corner X="12.0" Y="8.5"/>
+	</Wall>
+	<Wall Height="1.0">
+		<Corner X="12.0" Y="5.5"/>
+		<Corner X="20.5" Y="5.5"/>
+		<Corner X="20.5" Y="5.0"/>
+		<Corner X="12.0" Y="5.0"/>
+	</Wall>
+	<Wall Height="3.0">
+		<Corner X="4.9" Y="3.5"/>
+		<Corner X="6.0" Y="3.5"/>
+		<Corner X="6.0" Y="10.5"/>
+		<Corner X="4.9" Y="10.5"/>
+	</Wall>
+	<Wall Height="3.0">
+		<Corner X="20.0" Y="5.0"/>
+		<Corner X="20.0" Y="1.6"/>
+		<Corner X="20.5" Y="1.6"/>
+		<Corner X="20.5" Y="5.0"/>
+	</Wall>
+	<Wall Height="3.0">
+		<Corner X="12.0" Y="12.5"/>
+		<Corner X="12.0" Y="9.0"/>
+		<Corner X="12.5" Y="9.0"/>
+		<Corner X="12.5" Y="12.5"/>
+	</Wall>
+	<Wall Height="3.0">
+		<Corner X="20.0" Y="12.5"/>
+		<Corner X="20.0" Y="9.0"/>
+		<Corner X="20.5" Y="9.0"/>
+		<Corner X="20.5" Y="12.5"/>
+	</Wall>
+	<Wall Height="3.0">
+		<Corner X="12.0" Y="5.0"/>
+		<Corner X="12.0" Y="1.6"/>
+		<Corner X="12.5" Y="1.6"/>
+		<Corner X="12.5" Y="5.0"/>
+	</Wall>
+	<Wall Height="3.0">
+		<Corner X="22.9" Y="7.5"/>
+		<Corner X="22.9" Y="6.4"/>
+		<Corner X="28.0" Y="6.4"/>
+		<Corner X="28.0" Y="7.5"/>
+	</Wall>
+</Lab>

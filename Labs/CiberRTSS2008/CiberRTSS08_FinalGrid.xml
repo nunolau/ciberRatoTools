@@ -1,0 +1,7 @@
+<Grid>
+	<Position X="13" Y="10" Dir="-90"/>
+	<Position X="11" Y="10" Dir="45"/>
+	<Position X="9" Y="10" Dir="90"/>
+	<Position X="15" Y="10" Dir="135"/>
+	<Position X="17" Y="10" Dir="90"/>
+</Grid>

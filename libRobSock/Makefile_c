@@ -1,0 +1,24 @@
+# Makefile for libRobSock.a
+# library to be used by clients developed in C
+
+CXXFLAGS = -Wall -O3 -I$(QTDIR)/include -I$(QTDIR)
+
+HEADERS = cmeasures.h csimparam.h netif.h structureparser.h croblink.h RobSock.h
+
+OBJS = RobSock.o netif.o structureparser.o croblink.o cmeasures.o csimparam.o
+
+libRobSock.a:	$(OBJS)
+	ar r libRobSock.a $(OBJS)
+
+$(OBJS):	$(HEADERS)
+
+clean:
+	rm -f *.o
+
+distclean: clean
+	rm -f libRobSock.a
+
+.cpp.o:
+	g++ $(CXXFLAGS) -c -o $@ $< || ( echo "\n\nCHECK if QTDIR environment variable is defined!!!\n" && exit 1 )
+
+

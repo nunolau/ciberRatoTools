@@ -1,0 +1,10 @@
+#/bin/bash
+
+(cd simulator; ./simulator)&
+
+sleep 1
+
+(cd Viewer; ./Viewer)
+
+killall simulator
+

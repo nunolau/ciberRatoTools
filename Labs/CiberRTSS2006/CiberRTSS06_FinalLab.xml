@@ -1,0 +1,64 @@
+<Lab Name="CiberMouse RTSS2006 Final" Width="28" Height="14">
+	<Beacon X="3.3" Y="10.7" Height="2.0"/>
+	<Target X="3.3" Y="10.7" Radius="1.0"/>
+
+	<Wall Height="2.5">
+		<Corner X="14" Y="14"/>
+		<Corner X="14" Y="5.5"/>
+		<Corner X="15" Y="5.5"/>
+		<Corner X="15" Y="14"/>
+	</Wall>
+
+	<Wall Height="1.0">
+		<Corner X="15" Y="9"/>
+		<Corner X="23.5" Y="9"/>
+		<Corner X="23.5" Y="8.5"/>
+		<Corner X="15" Y="8.5"/>
+	</Wall>
+
+	<Wall Height="3.0">
+		<Corner X="14" Y="5.5"/>
+		<Corner X="24" Y="5.5"/>
+		<Corner X="24" Y="5"/>
+		<Corner X="14" Y="5"/>
+	</Wall>
+
+	<Wall Height="3.0">
+		<Corner X="13" Y="6"/>
+		<Corner X="14" Y="6"/>
+		<Corner X="14" Y="5"/>
+		<Corner X="13" Y="5"/>
+	</Wall>
+
+	<Wall Height="3.0">
+		<Corner X="8" Y="1"/>
+		<Corner X="9" Y="1"/>
+		<Corner X="9" Y="0"/>
+		<Corner X="8" Y="0"/>
+	</Wall>
+
+	<Wall Height="1.0">
+		<Corner X="9" Y="5"/>
+		<Corner X="10" Y="5"/>
+		<Corner X="10" Y="4"/>
+		<Corner X="9" Y="4"/>
+	</Wall>
+
+	<Wall Height="1.0">
+		<Corner X="6" Y="11"/>
+		<Corner X="6" Y="8"/>
+		<Corner X="3" Y="8"/>
+		<Corner X="3" Y="3.5"/>
+		<Corner X="5" Y="3.5"/>
+		<Corner X="5" Y="4"/>
+		<Corner X="3.5" Y="4"/>
+		<Corner X="3.5" Y="7.5"/>
+		<Corner X="6.5" Y="7.5"/>
+		<Corner X="6.5" Y="10.5"/>
+		<Corner X="10" Y="10.5"/>
+		<Corner X="10" Y="9"/>
+		<Corner X="10.5" Y="9"/>
+		<Corner X="10.5" Y="11"/>
+	</Wall>
+
+</Lab>

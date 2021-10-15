@@ -1,0 +1,17 @@
+#/bin/bash
+(cd simulator; ./simulator)&
+
+sleep 5 
+
+(cd GUISample; LD_LIBRARY_PATH=../libRobSock/ ./GUISample --pos 1 --robname SAMPLE_1) &
+#(cd GUISample; LD_LIBRARY_PATH=../libRobSock/ ./GUISample --pos 2 --robname SAMPLE_2)&
+#(cd GUISample; LD_LIBRARY_PATH=../libRobSock/ ./GUISample --pos 3 --robname SAMPLE_3)&
+#(cd GUISample; LD_LIBRARY_PATH=../libRobSock/ ./GUISample --pos 4 --robname SAMPLE_4)&
+#(cd GUISample; LD_LIBRARY_PATH=../libRobSock/ ./GUISample --pos 5 --robname SAMPLE_5)&
+
+sleep 1
+
+(cd Viewer; ./Viewer)
+
+killall simulator GUISample
+

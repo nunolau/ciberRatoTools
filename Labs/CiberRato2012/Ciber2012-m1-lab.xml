@@ -1,0 +1,69 @@
+<Lab Name="2012 - Maze 1" Height="14.00" Width="28.00">
+<Beacon X="22.00" Y="7.00" Height="2.00"/>
+<Target X="22.00" Y="7.00" Radius="2.50"/>
+<Target X="3.40" Y="7.00" Radius="2.50"/>
+<Wall Height="3.00">
+<Corner X="5.50" Y="12.00"/>
+<Corner X="0.00" Y="12.00"/>
+<Corner X="0.00" Y="11.50"/>
+<Corner X="5.00" Y="11.50"/>
+<Corner X="5.00" Y="9.50"/>
+<Corner X="5.50" Y="9.50"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="5.50" Y="2.00"/>
+<Corner X="0.00" Y="2.00"/>
+<Corner X="0.00" Y="2.50"/>
+<Corner X="5.00" Y="2.50"/>
+<Corner X="5.00" Y="4.50"/>
+<Corner X="5.50" Y="4.50"/>
+</Wall>
+<Wall Height="1.00">
+<Corner X="8.50" Y="11.00"/>
+<Corner X="8.50" Y="3.00"/>
+<Corner X="9.00" Y="3.00"/>
+<Corner X="9.00" Y="11.00"/>
+</Wall>
+<Wall Height="1.00">
+<Corner X="23.50" Y="2.50"/>
+<Corner X="28.00" Y="2.50"/>
+<Corner X="28.00" Y="3.00"/>
+<Corner X="23.50" Y="3.00"/>
+</Wall>
+<Wall Height="1.00">
+<Corner X="23.50" Y="11.00"/>
+<Corner X="28.00" Y="11.00"/>
+<Corner X="28.00" Y="11.50"/>
+<Corner X="23.50" Y="11.50"/>
+</Wall>
+<Wall Height="1.00">
+<Corner X="19.00" Y="10.50"/>
+<Corner X="19.00" Y="3.50"/>
+<Corner X="19.50" Y="3.50"/>
+<Corner X="19.50" Y="10.50"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="17.50" Y="10.00"/>
+<Corner X="19.00" Y="10.00"/>
+<Corner X="19.00" Y="10.50"/>
+<Corner X="17.50" Y="10.50"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="17.50" Y="3.50"/>
+<Corner X="19.00" Y="3.50"/>
+<Corner X="19.00" Y="4.00"/>
+<Corner X="17.50" Y="4.00"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="9.00" Y="3.00"/>
+<Corner X="11.50" Y="3.00"/>
+<Corner X="11.50" Y="3.50"/>
+<Corner X="9.00" Y="3.50"/>
+</Wall>
+<Wall Height="3.00">
+<Corner X="9.00" Y="10.50"/>
+<Corner X="11.50" Y="10.50"/>
+<Corner X="11.50" Y="11.00"/>
+<Corner X="9.00" Y="11.00"/>
+</Wall>
+</Lab>

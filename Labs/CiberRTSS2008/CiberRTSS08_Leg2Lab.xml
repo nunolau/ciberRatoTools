@@ -1,0 +1,106 @@
+<Lab Name="CiberRTSS08 Stage2" Height="14" Width="28">
+	<Beacon X="14.1" Y="3" Height="2"/>
+	<Target X="14.1" Y="3" Radius="2"/>
+	<Wall Height="3">
+		<Corner X="19" Y="8.5"/>
+		<Corner X="19" Y="14"/>
+		<Corner X="18.5" Y="14"/>
+		<Corner X="18.5" Y="9"/>
+		<Corner X="15.5" Y="9"/>
+		<Corner X="15.5" Y="8.5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="12.5" Y="8.5"/>
+		<Corner X="12.5" Y="9"/>
+		<Corner X="9.5" Y="9"/>
+		<Corner X="9.5" Y="14"/>
+		<Corner X="9" Y="14"/>
+		<Corner X="9" Y="8.5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="5" Y="8"/>
+		<Corner X="5" Y="5.5"/>
+		<Corner X="5.5" Y="5.5"/>
+		<Corner X="5.5" Y="8"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="22.5" Y="8"/>
+		<Corner X="22.5" Y="5.5"/>
+		<Corner X="23" Y="5.5"/>
+		<Corner X="23" Y="8"/>
+	</Wall>
+	<Wall Height="1">
+		<Corner X="5" Y="5"/>
+		<Corner X="10" Y="5"/>
+		<Corner X="10" Y="3"/>
+		<Corner X="10.5" Y="3"/>
+		<Corner X="10.5" Y="5"/>
+		<Corner X="17.5" Y="5"/>
+		<Corner X="17.5" Y="3"/>
+		<Corner X="18" Y="3"/>
+		<Corner X="18" Y="5"/>
+		<Corner X="23" Y="5"/>
+		<Corner X="23" Y="5.5"/>
+		<Corner X="5" Y="5.5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="2.5" Y="5"/>
+		<Corner X="5" Y="5"/>
+		<Corner X="5" Y="5.5"/>
+		<Corner X="2.5" Y="5.5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="0" Y="7.5"/>
+		<Corner X="2.5" Y="7.5"/>
+		<Corner X="2.5" Y="8"/>
+		<Corner X="0" Y="8"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="2.5" Y="5"/>
+		<Corner X="2.5" Y="2.5"/>
+		<Corner X="3" Y="2.5"/>
+		<Corner X="3" Y="5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="5.5" Y="2.5"/>
+		<Corner X="5.5" Y="0"/>
+		<Corner X="7.5" Y="0"/>
+		<Corner X="7.5" Y="2.5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="25.5" Y="7.5"/>
+		<Corner X="28" Y="7.5"/>
+		<Corner X="28" Y="8"/>
+		<Corner X="25.5" Y="8"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="20.5" Y="2.5"/>
+		<Corner X="20.5" Y="0"/>
+		<Corner X="22.5" Y="0"/>
+		<Corner X="22.5" Y="2.5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="23" Y="5"/>
+		<Corner X="25.5" Y="5"/>
+		<Corner X="25.5" Y="5.5"/>
+		<Corner X="23" Y="5.5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="25" Y="5"/>
+		<Corner X="25" Y="2.5"/>
+		<Corner X="25.5" Y="2.5"/>
+		<Corner X="25.5" Y="5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="2.5" Y="11"/>
+		<Corner X="5" Y="11"/>
+		<Corner X="5" Y="11.5"/>
+		<Corner X="2.5" Y="11.5"/>
+	</Wall>
+	<Wall Height="3">
+		<Corner X="23" Y="11"/>
+		<Corner X="25.5" Y="11"/>
+		<Corner X="25.5" Y="11.5"/>
+		<Corner X="23" Y="11.5"/>
+	</Wall>
+</Lab>

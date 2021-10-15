@@ -1,0 +1,77 @@
+# Ciber-Rato Viewer
+# Universidade de Aveiro 2006
+# António Neves & João Figueiredo
+
+# README
+
+
+### Descrição do programa
+
+	O visualizador faz parte de um conjunto de aplicações utilizadas no
+concurso Micro-Rato, modalidade Ciber-Rato, no qual decorre uma prova
+simulada onde robots tentam vencer um labirinto. Em particular o
+visualizador apresenta a prova de uma forma visualmente mais agradavel,
+representando de forma gráfica o estado de cada um dos intervenientes
+(robots) no labirinto.
+	O visualizador é composto por uma janela onde se representa o labirinto
+e os robots, bem como as pontuações e estado dos mesmos.  No canto superior
+esquerdo encontram-se os botões de controlo da prova, que podem não aparecer
+se o Viewer for chamado com a opção -nocontrol.
+
+### Modo de utilização
+
+	Associado ao  visualizador, terá de existir um simulador a correr,
+localmente ou num computador remoto, acessivel por UDP/IP.
+
+	Linha de comandos: 
+		Viewer	[-host remoteSimulatorAddress:port]
+				[-lowercolor X11color]
+				[-highercolor X11color]
+				[-nocontrol]
+				[-autoconnect]
+				[-autostart]
+				[-help]				 
+
+	Existem dois ficheiros de configuração na distribuição. O ficheiro 
+param_auto.xml permite configurar o visualizador de modo a este
+fazer um auto-connect e um auto-start.
+	Linha de comandos:
+		Viewer -paramfile param_auto.xml
+
+### Sistema operativo e compilador associado
+
+	O visualizador foi desenvolvido em C++ utilizando o compilador gcc/g++
+GNU Project C/C++ compiler (gcc version 3.3.5 - Debian 1:3.3.5-8) e as 
+bibliotecas Qt (versão 3.3.3), num computador a correr Linux com kernel 2.6
+	Para mais informações relacionadas com Qt procurar em
+http://www.trolltech.com
+
+
+### Informações e contactos 
+
+    Consultar:
+        http://microrato.ua.pt/
+
+    Contactos :
+        Nuno Lau
+        Universidade de Aveiro
+        email: lau@det.ua.pt
+
+        Artur C. Pereira
+        Universidade de Aveiro
+        email: artur@det.ua.pt
+
+        Andreia Melo
+        Universidade de Aveiro
+        email: andreia@det.ua.pt
+
+        Antonio Neves
+        Universidade de Aveiro
+        email: an@ieeta.pt
+
+        Joao Figueiredo
+        Universidade de Aveiro
+        email: joao.figueiredo@hotpop.com
+
+Copyright (c) 2006 -  Ciber-Rato Team
+
