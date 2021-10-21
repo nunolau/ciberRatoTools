@@ -959,6 +959,7 @@ void cbRobot::updateStateMapping()
                         } 
                         fprintf(fp,"\n");
                      }
+                     fclose(fp);
                   }
                   
             }
