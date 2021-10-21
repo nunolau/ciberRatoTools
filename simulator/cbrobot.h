@@ -148,6 +148,7 @@ public:
 	void updateState();
 	void updateStateCompetitive();
 	void updateStateControl();
+    void updateStateMapping();
 
 	void updateSensors();
 

@@ -796,6 +796,180 @@ void cbRobot::updateStateControl()
     }
 }
 
+void cbRobot::updateStateMapping()
+{
+    switch(_state) {
+        case RUNNING:
+            if(removed) _state = REMOVED;
+
+            else if (simulator->state() == cbSimulator::STOPPED) {
+                _unstoppedState=_state;
+                _state=STOPPED;
+            }
+
+            else if (endLed) {
+	        _state = FINISHED;
+	    }
+
+            break;
+        case STOPPED:
+            if(removed) _state = REMOVED;
+            else if(simulator->state() != cbSimulator::STOPPED)
+                      _state=_unstoppedState;
+            // determine lab map centered on robot initial pos
+            if(_state==RUNNING && simulator->curTime()==0) {
+                  int  cells_width  = int(simulator->Lab()->Width())/2;
+                  int  cells_height = int(simulator->Lab()->Height())/2;
+                  int  lmap_width   = cells_width*4-1;
+                  int  lmap_height  = cells_height*4-1;
+                  char lmap[lmap_height][lmap_width];
+
+                  memset(lmap,' ',sizeof(lmap));
+
+                  //debug
+
+                  struct cell_t initCell = getRobotCell();;
+
+                  fprintf(stderr,"initCell %d %d\n", initCell.x, initCell.y);
+
+                  // find vertical walls
+                  for(int cy = 0; cy < cells_height; cy++) {
+                       for(int cx = 0; cx < cells_width; cx++) {
+                            if(!simulator->Lab()->reachable(cbPoint(cx*2.0+1.0,cy*2.0+1.0), cbPoint((cx+1)*2.0+1.0,cy*2.0+1.0))){
+                                 //fprintf(stderr,"not reachable %d %d -> %d %d, lmap %d %d\n", cy, cx, cy, cx+1, 
+                                 //         (cy-initCell.y)*2+lmap_height/2,(cx-initCell.x)*2+1+lmap_width/2);
+                                 lmap[(cy-initCell.y)*2+lmap_height/2][(cx-initCell.x)*2+1+lmap_width/2] = '|';
+                            }
+                       } 
+                  }
+                  // vertical left wall
+                  for(int cy = 0; cy < cells_height; cy++) {
+                            int cx=0;
+                            if(!simulator->Lab()->reachable(cbPoint(cx*2.0+1.0,cy*2.0+1.0), cbPoint((cx-1)*2.0+1.0,cy*2.0+1.0))){
+                                 lmap[(cy-initCell.y)*2+lmap_height/2][(cx-initCell.x)*2-1+lmap_width/2] = '|';
+                            }
+                  } 
+
+                  // find horizontal walls
+                  for(int cy = 0; cy < cells_height; cy++) {
+                       for(int cx = 0; cx < lmap_width; cx++) {
+                            if(!simulator->Lab()->reachable(cbPoint(cx*2.0+1.0,cy*2.0+1.0), cbPoint(cx*2.0+1.0,(cy+1)*2.0+1.0))){
+                                 lmap[(cy-initCell.y)*2+1+lmap_height/2][(cx-initCell.x)*2+lmap_width/2] = '-';
+                            }
+                       } 
+                  }
+                  // horizontal lower wall
+                  int cy=0;
+                  for(int cx = 0; cx < lmap_width; cx++) {
+                            if(!simulator->Lab()->reachable(cbPoint(cx*2.0+1.0,cy*2.0+1.0), cbPoint(cx*2.0+1.0,(cy-1)*2.0+1.0))){
+                                 lmap[(cy-initCell.y)*2-1+lmap_height/2][(cx-initCell.x)*2+lmap_width/2] = '-';
+                            }
+                  } 
+
+
+                  //mark initial pos as known
+                  lmap[lmap_height/2][lmap_width/2] = 'X';
+
+                  // mark reachable positions
+                  int changes=1;
+                  while(changes) {
+                     changes = 0;
+                     for(int ly = 1;ly<lmap_height-1; ly++) {
+                       for(int lx = 1; lx < lmap_width; lx++) {
+                            if (lx%2 == 0 && ly%2==0) continue;
+                            if(lmap[ly][lx] == ' ' &&
+                               (lmap[ly][lx+1] == 'X' 
+                                || lmap[ly][lx-1] == 'X' 
+                                || lmap[ly+1][lx] == 'X' 
+                                || lmap[ly-1][lx] == 'X')
+                               ) {
+                               changes = 1;
+                               lmap[ly][lx] = 'X';
+                            }
+                       } 
+                     }
+                  }
+
+
+                  //unmark unseen walls
+                  for(int ly = 1;ly<lmap_height-1; ly++) {
+                      for(int lx = 1; lx < lmap_width-1; lx++) {
+                            if(lmap[ly][lx] == '-' 
+                               && lmap[ly-1][lx] != 'X' 
+                               && lmap[ly+1][lx] != 'X' 
+                               ) {
+                               lmap[ly][lx] = ' ';
+                            }
+                            if(lmap[ly][lx] == '|' 
+                               && lmap[ly][lx-1] != 'X' 
+                               && lmap[ly][lx+1] != 'X' 
+                               ) {
+                               lmap[ly][lx] = ' ';
+                            }
+                       } 
+                  }
+
+                  int ly=0;
+                  for(int lx = 0; lx < lmap_width; lx++) {
+                            if(lmap[ly][lx] == '-' 
+                               && lmap[ly+1][lx] != 'X' 
+                               ) {
+                               lmap[ly][lx] = ' ';
+                            }
+                  }
+                  ly=lmap_height-1;
+                  for(int lx = 0; lx < lmap_width; lx++) {
+                            if(lmap[ly][lx] == '-' 
+                               && lmap[ly-1][lx] != 'X' 
+                               ) {
+                               lmap[ly][lx] = ' ';
+                            }
+                  }
+
+                  int lx=0;
+                  for(int ly = 0;ly<lmap_height; ly++) {
+                            if(lmap[ly][lx] == '|' 
+                               && lmap[ly][lx+1] != 'X' 
+                               ) {
+                               lmap[ly][lx] = ' ';
+                            }
+                  }
+
+                  lx = lmap_width-1;
+                  for(int ly = 0;ly<lmap_height; ly++) {
+                            if(lmap[ly][lx] == '|' 
+                               && lmap[ly][lx-1] != 'X' 
+                               ) {
+                               lmap[ly][lx] = ' ';
+                            }
+                  }
+
+                  //mark initial pos as I
+                  lmap[lmap_height/2][lmap_width/2] = 'I';
+
+
+                  FILE *fp=fopen("mapping.out","w");
+                  if(fp==NULL) {
+                       fprintf(stderr,"Could not create mapping file\n");
+                  }
+                  else {
+                     for(int ly = lmap_height-1; ly>=0; ly--) {
+                        for(int lx = 0; lx < lmap_width; lx++) {
+                              fprintf(fp,"%c",lmap[ly][lx]);
+                        } 
+                        fprintf(fp,"\n");
+                     }
+                  }
+                  
+            }
+            break;
+        case FINISHED:
+            if(removed) _state = REMOVED;
+	default:
+	    break;
+    }
+}
+
 
 
 #define COLLISION_PENALTY   5

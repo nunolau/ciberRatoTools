@@ -67,7 +67,8 @@ static const char *LAB =
 	"<Lab Name=\"Default LAB\" Height=\"14\" Width=\"28\">\n"
 		"\t<Beacon X=\"25\" Y=\"7.0\" Height=\"4.0\"/>\n"
 		"\t<Target X=\"25\" Y=\"7.0\" Radius=\"1.0\"/>\n"
-		"\t<Row  Pos=\"12\" Pattern=\"  |        |     |                 |     \"  />\n"  
+		"\t<Row  Pos=\"12\" Pattern=\"                 |                       \"  />\n"  
+//		"\t<Row  Pos=\"12\" Pattern=\"  |        |     |                 |     \"  />\n"  
 		"\t<Row  Pos=\"11\" Pattern=\"  ·--·  ·--·--·  ·  ·--·--.--·--·  ·--·--\"  />\n"  
 		"\t<Row  Pos=\"10\" Pattern=\"  |        |              |        |     \"  />\n"    
 		"\t<Row  Pos=\"9\"  Pattern=\"--·--·  ·--·  ·--·--·--·  ·--·--·  ·--·  \"  />\n"    
@@ -75,11 +76,12 @@ static const char *LAB =
 		"\t<Row  Pos=\"7\"  Pattern=\"--·--·--·  ·--·  .--·--·--·  ·  ·  ·--·  \"  />\n"    
 		"\t<Row  Pos=\"6\"  Pattern=\"  |                                      \"  />\n"    
 		"\t<Row  Pos=\"5\"  Pattern=\"  ·--·--·--·--·--·--·  ·  ·--·  ·--·--·--\"  />\n"    
-		"\t<Row  Pos=\"4\"  Pattern=\"     |  |              |     |     |     \"  />\n"    
+//		"\t<Row  Pos=\"4\"  Pattern=\"     |  |              |     |     |     \"  />\n"    
+		"\t<Row  Pos=\"4\"  Pattern=\"        |              |     |     |     \"  />\n"    
 		"\t<Row  Pos=\"3\"  Pattern=\"  ·--·  ·--·--·--·--·  ·--·  ·  ·--·  ·  \"  />\n"    
 		"\t<Row  Pos=\"2\"  Pattern=\"  |                 |           |     |  \"  />\n"    
 		"\t<Row  Pos=\"1\"  Pattern=\"  ·--·  ·--·--·--·  ·--·--·  ·--·  ·--·  \"  />\n"    
-		"\t<Row  Pos=\"0\"  Pattern=\"  |  |           |           |     |     \"  />\n"    
+		"\t<Row  Pos=\"0\"  Pattern=\"  |  |           |                 |     \"  />\n"    
 /*		"\t<Wall Height=\"5.0\">\n"
 			"\t\t<Corner X=\"10.0\" Y=\"6.0\"/>\n"
 			"\t\t<Corner X=\"11.0\" Y=\"6.0\"/>\n"
@@ -936,11 +938,15 @@ void cbSimulator::UpdateScores()
 		cbRobot *robot = robots[i];
         if (robot == 0) continue;
 
-        if(scoring==0)
+        switch(scoring) {
+          case 1:
+            robot->updateScoreControl();         // CONTROL
+            break;
+          default:
            robot->updateScoreCompetitive();   // COMPETITIVE
-        //robot->updateScore();                // COOPERATIVE
-        else 
-           robot->updateScoreControl();         // CONTROL
+           //robot->updateScore();                // COOPERATIVE
+           break;
+        }
 	}
 }
 
@@ -1025,13 +1031,20 @@ void cbSimulator::UpdateState()
 		cbRobot *robot = robots[i];
 		if (robot == 0) continue;
 
-        if(scoring==0) {
-            robot->updateStateCompetitive();    // COMPETITIVE
-        }
-        else 
+        switch(scoring) {
+          case 1:
             robot->updateStateControl();          // CONTROL
+             break;
+          case 2:
+            robot->updateStateMapping();        // MAPPING
+            break;
+          default:
+            robot->updateStateCompetitive();    // COMPETITIVE
+            //robot->updateState();               // COOPERATIVE
+            break;
+        }
+        
 	}
-        //robot->updateState();               // COOPERATIVE
 
 }
 

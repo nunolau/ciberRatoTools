@@ -228,9 +228,7 @@ int main(int argc, char *argv[])
             else CommandLineError();
 	}
         else if (strcmp(argv[p], "--scoring") == 0)	{
-            fprintf(stderr,"AA\n");
             if (p+1 < argc) {
-               fprintf(stderr,"BB\n");
                 int scoring;
                 sscanf(argv[p+1], "%d", &scoring);
                 simulator.setScoring(scoring);
@@ -311,9 +309,7 @@ int main(int argc, char *argv[])
             else CommandLineError();
 		}
         else if (strcmp(argv[p], "--scoring") == 0)	{
-            fprintf(stderr,"AA\n");
             if (p+1 < argc) {
-               fprintf(stderr,"BB\n");
                 int scoring;
                 sscanf(argv[p+1], "%d", &scoring);
                 simulator.setScoring(scoring);
