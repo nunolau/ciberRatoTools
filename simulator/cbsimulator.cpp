@@ -81,7 +81,7 @@ static const char *LAB =
 		"\t<Row  Pos=\"3\"  Pattern=\"  ·--·  ·--·--·--·--·  ·--·  ·  ·--·  ·  \"  />\n"    
 		"\t<Row  Pos=\"2\"  Pattern=\"  |                 |           |     |  \"  />\n"    
 		"\t<Row  Pos=\"1\"  Pattern=\"  ·--·  ·--·--·--·  ·--·--·  ·--·  ·--·  \"  />\n"    
-		"\t<Row  Pos=\"0\"  Pattern=\"  |  |           |                 |     \"  />\n"    
+		"\t<Row  Pos=\"0\"  Pattern=\"  |  |           |           |     |     \"  />\n"    
 /*		"\t<Wall Height=\"5.0\">\n"
 			"\t\t<Corner X=\"10.0\" Y=\"6.0\"/>\n"
 			"\t\t<Corner X=\"11.0\" Y=\"6.0\"/>\n"
