@@ -157,7 +157,7 @@ float getXvel(void){
 
 float controlAction(float setPoint, float feedback)
 {
-  const float kp = 3.0;
+  const float kp = 50.0;
 
 #if CONTROLLER==P
   return kp*(setPoint - feedback);

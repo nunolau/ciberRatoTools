@@ -60,7 +60,7 @@ double cbMotor::outPower()
 
   // PF: changed transfer function
 	// outpower = (0.5*inpower + 0.5*prevpower) * noisepow;
-  outpower = (0.3*inpower + 0.7*prevpower);
+  outpower = (0.05*inpower + 0.95*prevpower);
 	prevpower = outpower;
 
 	return outpower;
