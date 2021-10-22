@@ -19,13 +19,13 @@
 */
 
 /*! \file cbmotor.cpp
-	\brief Definição dos motores que actuam as rodas dos robôs.
+	\brief Definiï¿½ï¿½o dos motores que actuam as rodas dos robï¿½s.
 
-	Os motores são caracterizados por uma potência de entrada, uma potência
-	de saída e um coeficiente de ruído.
-	Na versão actual as potências de entrada e saída são as mesmas. 
+	Os motores sï¿½o caracterizados por uma potï¿½ncia de entrada, uma potï¿½ncia
+	de saï¿½da e um coeficiente de ruï¿½do.
+	Na versï¿½o actual as potï¿½ncias de entrada e saï¿½da sï¿½o as mesmas.
 	Quer isto dizer que os motores conseguem comutar instantaneamente
-	de uma qualquer potência para outra.
+	de uma qualquer potï¿½ncia para outra.
 */
 
 #include "cbutils.h"
@@ -34,7 +34,8 @@
 #include <stdlib.h>
 #include <iostream>
 
-#define MAX_POWER 0.15
+// PF: MAX_POWER set to 1
+#define MAX_POWER 1
 
 cbMotor::cbMotor(void)
 {
@@ -57,9 +58,10 @@ double cbMotor::outPower()
 {
 	double noisepow = randNormal(100.0, noise) / 100.0;
 
-	outpower = (0.5*inpower + 0.5*prevpower) * noisepow;
+  // PF: changed transfer function
+	// outpower = (0.5*inpower + 0.5*prevpower) * noisepow;
+  outpower = (0.3*inpower + 0.7*prevpower);
 	prevpower = outpower;
 
 	return outpower;
 }
-

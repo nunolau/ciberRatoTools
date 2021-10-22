@@ -1,0 +1,22 @@
+#!/bin/bash
+
+ARGS="--param ../Labs/control/control1-config.xml"
+ARGS+=" --lab ../Labs/control/control1-lab.xml"
+ARGS+=" --grid ../Labs/control/control1-grid.xml"
+ARGS+=" --scoring 1"
+ARGS+=" --gps"
+
+(cd simulator; ./simulator $ARGS) &
+
+sleep 1
+
+(cd Viewer; ./Viewer --autoconnect) &
+
+sleep 1
+
+(cd robsample; ./robsample )
+
+killall Viewer
+killall simulator
+
+echo Bye
