@@ -1,4 +1,3 @@
-
 /* mainRob.C
 *
 * Basic Robot Agent
@@ -12,6 +11,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <float.h>
 
 #include "RobSock.h"
 
@@ -22,6 +22,7 @@
 
 float getXvel(void);
 float controlAction(float setPoint, float feedback);
+float xLineSensor(float targetY);
 
 int main(int argc, char *argv[])
 {
@@ -94,7 +95,7 @@ int main(int argc, char *argv[])
   while(1)
   {
 
-    float velSetPoint=0.15;
+    float velSetPoint=0.1;
 
     /* Reading next values from Sensors */
     ReadSensors();
@@ -107,7 +108,14 @@ int main(int argc, char *argv[])
 
     /* Test if reached end of labyrinth */
     if(GetX() > 26.0){
+      printf("Reached end of maze! Terminating...\n");
       fclose(fd);
+      exit(0);
+    }
+
+    if(GetStopButton() && (GetTime()>0) ){
+      fclose(fd);
+      printf("Stop button pressed! Terminating...\n");
       exit(0);
     }
 
@@ -120,8 +128,13 @@ int main(int argc, char *argv[])
     DriveMotors(lPow,rPow);
 
     fprintf(fd,"%u\t",GetTime());
-    fprintf(fd,"%6.3f\t",GetX());
-    fprintf(fd,"%6.3f\n",xVel);
+    fprintf(fd,"%4.5f\t%4.5f\t",GetX(),GetY());
+    fprintf(fd,"%4.5f\t",xVel);
+    fprintf(fd,"%4.5f\t",velSetPoint-xVel);
+    fprintf(fd,"\n");
+
+    printf("%u\t",GetTime());
+    printf("%4.5f\t%4.5f\n",GetX(),GetY());
 
   }
 
@@ -140,7 +153,12 @@ float getXvel(void){
   currentXpos = GetX();
   currTime = GetTime();
 
+  if(currTime > lastTime){
   xVel = (currentXpos - lastXpos)/(currTime - lastTime);
+  }
+  else{
+    xVel = 0;
+  }
 
   /* Store for future memory... */
   lastXpos = currentXpos;
@@ -150,17 +168,71 @@ float getXvel(void){
 
 }
 
+/**
+* float xLineSensor(float targetY)
+*
+* Provides a simulation of a line sensor, detecting a
+* horizontal line at y=targetY
+*/
+float xLineSensor(float targetY){
+  float value = (targetY - GetY())/cos(M_PI*GetDir()/180.0);
+  value = (targetY - GetY());
 
-#define NONE            0
-#define P    1
-#define CONTROLLER     P
+  if (value>1)
+    value = 1;
+  if (value < -1)
+    value = -1;
+  return value;
+}
+
+#define NONE          0
+#define P             1
+#define PID           2
+#define CONTROLLER    PID
 
 float controlAction(float setPoint, float feedback)
 {
-  const float kp = 50.0;
+  const float Kp = 35;
+  const float Ti = 800;
+  // const float Ti = FLT_MAX;
+  const float Td = 0.00;
+  const float h = 1;
+  const float max_u = 2;
+
+  const float K0 = Kp*(1+h/Ti+Td/h);
+  const float K1 = -Kp*(1+2*Td/h);
+  const float K2 = Kp*Td/h;
+
+  // memory for the control signal
+  static float u_m1 = 0;
+  // memory for error
+  static float e_m1 = 0;
+  static float e_m2 = 0;
+
+  float u=0;
+  float e=0;
+
+  /* Compute error */
+  e = setPoint - feedback;
 
 #if CONTROLLER==P
-  return kp*(setPoint - feedback);
+  return Kp*e;
+#elif CONTROLLER == PID
+  /* Compute control signal */
+  u = u_m1 + K0*e + K1*e_m1 + K2*e_m2;
+
+  /* store values for next iterations */
+  e_m2 = e_m1;
+  e_m1 = e;
+  u_m1 = u;
+
+  if(u>max_u)
+    u = max_u;
+  if (u<-max_u)
+    u = -max_u;
+
+  return u;
+
 #else
   return setPoint;
 #endif
