@@ -22,13 +22,13 @@
 #define CB_MOTOR_H
 
 /*! \file cbmotor.h
-	\brief Definição dos motores que actuam as rodas dos robôs.
+	\brief Definiï¿½ï¿½o dos motores que actuam as rodas dos robï¿½s.
 
-	Os motores são caracterizados por uma potência de entrada, uma potência
-	de saída e um coeficiente de ruído.
-	Na versão actual a potências de saída depende da potência de entrada e 
-	do valor anterior da potência. O valor à saída é o valor da entrada
-	filtrado através de um filtro passa-baixo.
+	Os motores sï¿½o caracterizados por uma potï¿½ncia de entrada, uma potï¿½ncia
+	de saï¿½da e um coeficiente de ruï¿½do.
+	Na versï¿½o actual a potï¿½ncias de saï¿½da depende da potï¿½ncia de entrada e
+	do valor anterior da potï¿½ncia. O valor ï¿½ saï¿½da ï¿½ o valor da entrada
+	filtrado atravï¿½s de um filtro passa-baixo.
 */
 class cbMotor
 {
@@ -42,9 +42,11 @@ public:	// member functions
 	inline double lastOutPower() { return outpower; }
 	inline double inPower() { return inpower; }
 
+
 private:	// object data members
 	double inpower, outpower;
 	double prevpower;
+  double a;         // TF time constant
 };
 
 #endif

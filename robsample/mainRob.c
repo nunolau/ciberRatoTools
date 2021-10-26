@@ -119,6 +119,15 @@ int main(int argc, char *argv[])
       exit(0);
     }
 
+    /* Change speed according to X position */
+    if(((int)GetX())/4 % 2){
+      velSetPoint = 0.1;
+    }
+    else{
+      velSetPoint = 0.15;
+    }
+    //velSetPoint = 0.1;
+
     /* Read current speed */
     xVel = getXvel();
 
@@ -131,11 +140,16 @@ int main(int argc, char *argv[])
     fprintf(fd,"%4.5f\t%4.5f\t",GetX(),GetY());
     fprintf(fd,"%4.5f\t",xVel);
     fprintf(fd,"%4.5f\t",velSetPoint-xVel);
+    fprintf(fd,"%4.5f\t",lPow);
+
     fprintf(fd,"\n");
 
     printf("%u\t",GetTime());
-    printf("%4.5f\t%4.5f\n",GetX(),GetY());
-
+    printf("%4.5f\t%4.5f\t",GetX(),GetY());
+    printf("%4.5f\t",velSetPoint);
+    printf("%4.5f\t",lPow);
+    printf("%u\t",((int)GetX())/4 % 2 );
+    printf("\n");
   }
 
   fclose(fd);
@@ -154,7 +168,7 @@ float getXvel(void){
   currTime = GetTime();
 
   if(currTime > lastTime){
-  xVel = (currentXpos - lastXpos)/(currTime - lastTime);
+    xVel = (currentXpos - lastXpos)/(currTime - lastTime);
   }
   else{
     xVel = 0;
@@ -179,25 +193,28 @@ float xLineSensor(float targetY){
   value = (targetY - GetY());
 
   if (value>1)
-    value = 1;
+  value = 1;
   if (value < -1)
-    value = -1;
+  value = -1;
   return value;
 }
 
 #define NONE          0
-#define P             1
-#define PID           2
-#define CONTROLLER    PID
+#define BANG          1
+#define BANG2         2
+#define BANGH         3
+#define P             10
+#define PID           11
+#define CONTROLLER    P
 
 float controlAction(float setPoint, float feedback)
 {
-  const float Kp = 35;
-  const float Ti = 800;
+  const float Kp = 12;
+  const float Ti = 10;
   // const float Ti = FLT_MAX;
-  const float Td = 0.00;
-  const float h = 1;
-  const float max_u = 2;
+  const float Td = 0.0;
+  const float h = 0.050;
+  const float max_u = 0.5;
 
   const float K0 = Kp*(1+h/Ti+Td/h);
   const float K1 = -Kp*(1+2*Td/h);
@@ -209,15 +226,54 @@ float controlAction(float setPoint, float feedback)
   static float e_m1 = 0;
   static float e_m2 = 0;
 
+  const float delta = 0.05;
+
   float u=0;
   float e=0;
 
   /* Compute error */
   e = setPoint - feedback;
 
-#if CONTROLLER==P
+  #if CONTROLLER==BANG
+  if(e>0){
+    u = max_u;
+  }
+  else if (e<0){
+    u = -max_u;
+    u = 0;
+  }
+  else{
+    u = 0;
+  }
+  return u;
+  #elif CONTROLLER==BANG2
+  if(e>0){
+    u = max_u;
+  }
+  else if (e<0){
+    u = -max_u;
+  }
+  else{
+    u = 0;
+  }
+  return u;
+  #elif CONTROLLER==BANGH
+  if(e>0+delta){
+    u = max_u;
+  }
+  else if (e<0-delta){
+    u = -max_u;
+  }
+  else{
+    u = u_m1;
+  }
+  u_m1 = u;
+  return u;
+
+  #elif CONTROLLER==P
   return Kp*e;
-#elif CONTROLLER == PID
+  #elif CONTROLLER == PID
+
   /* Compute control signal */
   u = u_m1 + K0*e + K1*e_m1 + K2*e_m2;
 
@@ -226,15 +282,17 @@ float controlAction(float setPoint, float feedback)
   e_m1 = e;
   u_m1 = u;
 
-  if(u>max_u)
-    u = max_u;
-  if (u<-max_u)
-    u = -max_u;
+
+  // Clip the control signal to avoid saturation
+  if(u_m1>max_u)
+  u_m1 = max_u;
+  if (u_m1<-max_u)
+  u_m1 = -max_u;
 
   return u;
 
-#else
+  #else
   return setPoint;
-#endif
+  #endif
 
 }

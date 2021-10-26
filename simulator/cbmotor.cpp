@@ -35,11 +35,12 @@
 #include <iostream>
 
 // PF: MAX_POWER set to 1
-#define MAX_POWER 1
+#define MAX_POWER 3
 
 cbMotor::cbMotor(void)
 {
    inpower=outpower=prevpower=0.0;
+   a=0.1;
 }
 
 void cbMotor::setInPower(double p)
@@ -49,18 +50,29 @@ void cbMotor::setInPower(double p)
 	inpower = p;
 }
 
-
 /*!
  * Determines and returns the power of the motor in each cycle.
  * Should be called only once per cycle!
  */
 double cbMotor::outPower()
 {
+  static unsigned int counter=0;
 	double noisepow = randNormal(100.0, noise) / 100.0;
 
-  // PF: changed transfer function
-	// outpower = (0.5*inpower + 0.5*prevpower) * noisepow;
-  outpower = (0.05*inpower + 0.95*prevpower);
+  counter++;
+
+
+#if 1
+  // At time=100, change the time constant
+  if(counter == 200){
+    a = a/2;
+  }
+#endif
+
+// PF: changed transfer function
+// outpower = (0.5*inpower + 0.5*prevpower) * noisepow;
+
+  outpower = (a*inpower + (1-a)*prevpower);
 	prevpower = outpower;
 
 	return outpower;
