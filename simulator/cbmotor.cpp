@@ -62,9 +62,9 @@ double cbMotor::outPower()
   counter++;
 
 
-#if 1
+#if 0
   // At time=100, change the time constant
-  if(counter == 200){
+  if(counter == 201){
     a = a/2;
   }
 #endif

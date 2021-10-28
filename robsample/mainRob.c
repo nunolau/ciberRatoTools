@@ -20,9 +20,13 @@
 #define true 1
 #define false 0
 
+typedef enum {NONE, BANG, BANG2, BANGH, P, PID} controller_t;
+
 float getXvel(void);
-float controlAction(float setPoint, float feedback);
+float controlAction(controller_t type, float setPoint, float feedback);
 float xLineSensor(float targetY);
+
+
 
 int main(int argc, char *argv[])
 {
@@ -33,6 +37,9 @@ int main(int argc, char *argv[])
   char lmap[CELLROWS*2-1][CELLCOLS*2-1]; // in this map the center of cell (i,j), (i in 0..6, j in 0..13) is mapped to lmap[i*2][j*2].
   // to know if there is a wall on top of cell(i,j) (i in 0..5), check if the value of lmap[i*2+1][j*2] is space or not
   float xVel;
+
+  float velSetPoint=0.1;
+
 
   printf( " Sample Robot\n Copyright (C) 2001-2019 Universidade de Aveiro\n" );
 
@@ -95,8 +102,6 @@ int main(int argc, char *argv[])
   while(1)
   {
 
-    float velSetPoint=0.1;
-
     /* Reading next values from Sensors */
     ReadSensors();
 
@@ -131,16 +136,17 @@ int main(int argc, char *argv[])
     /* Read current speed */
     xVel = getXvel();
 
-    /* Compute error and control value */
-    lPow = rPow = controlAction(velSetPoint,xVel);
+    /* Compute control value */
+    lPow = rPow = controlAction(NONE, velSetPoint,xVel);
 
+    /* Act on the system */
     DriveMotors(lPow,rPow);
 
     fprintf(fd,"%u\t",GetTime());
     fprintf(fd,"%4.5f\t%4.5f\t",GetX(),GetY());
+    fprintf(fd,"%4.5f\t",velSetPoint);
     fprintf(fd,"%4.5f\t",xVel);
-    fprintf(fd,"%4.5f\t",velSetPoint-xVel);
-    fprintf(fd,"%4.5f\t",lPow);
+    fprintf(fd,"%4.5f\t",lPow);   /* lPow (or rPow) is equal to u */
 
     fprintf(fd,"\n");
 
@@ -156,6 +162,11 @@ int main(int argc, char *argv[])
   return 1;
 }
 
+/**
+ * float getXvel(void)
+ *
+ * Computes current velocity along X axis.
+ */
 float getXvel(void){
 
   float xVel;
@@ -183,116 +194,108 @@ float getXvel(void){
 }
 
 /**
-* float xLineSensor(float targetY)
+* float controlAction(controller_t type, float setPoint, float feedback)
 *
-* Provides a simulation of a line sensor, detecting a
-* horizontal line at y=targetY
+* Implements the control action, dependening on type.
+*
+* If type is set to NONE, no feedback is used. The setpoint is propagated
+* to the output (r=u)
 */
-float xLineSensor(float targetY){
-  float value = (targetY - GetY())/cos(M_PI*GetDir()/180.0);
-  value = (targetY - GetY());
-
-  if (value>1)
-  value = 1;
-  if (value < -1)
-  value = -1;
-  return value;
-}
-
-#define NONE          0
-#define BANG          1
-#define BANG2         2
-#define BANGH         3
-#define P             10
-#define PID           11
-#define CONTROLLER    P
-
-float controlAction(float setPoint, float feedback)
+float controlAction(controller_t type, float setPoint, float feedback)
 {
-  const float Kp = 12;
-  const float Ti = 10;
-  // const float Ti = FLT_MAX;
-  const float Td = 0.0;
-  const float h = 0.050;
-  const float max_u = 0.5;
+  float u=0;    /**> Control signal */
+  float e=0;    /**> Error signal */
 
-  const float K0 = Kp*(1+h/Ti+Td/h);
-  const float K1 = -Kp*(1+2*Td/h);
-  const float K2 = Kp*Td/h;
+  const float max_u = 0.5;  // max_u - saturation value for control signal
 
-  // memory for the control signal
-  static float u_m1 = 0;
+  // PID constants:
+  const float Kp = 1;       // Kp - proportional constant
+  // const float Ti = ;     // Ti - Integration time
+  //      set to FLT_MAX to disable I component
+  const float Ti = FLT_MAX;
+  const float Td = 0.0;     // Td - differential time
+  const float h = 0.050;    // h  - sampling interval
+
+  // Auxiliary constants for the PID controller
+  static const float K0 = Kp*(1+h/Ti+Td/h);
+  static const float K1 = -Kp*(1+2*Td/h);
+  static const float K2 = Kp*Td/h;
+
   // memory for error
   static float e_m1 = 0;
   static float e_m2 = 0;
 
-  const float delta = 0.05;
-
-  float u=0;
-  float e=0;
+  // memory for the control signal
+  static float u_m1 = 0;
 
   /* Compute error */
   e = setPoint - feedback;
 
-  #if CONTROLLER==BANG
-  if(e>0){
-    u = max_u;
+  /* Implement control action depending on the type of control. */
+  switch (type) {
+    case NONE:
+      /* No feedback action */
+      u = setPoint;
+      break;
+    case BANG:
+      /* Bang-bang control */
+      if(e>0){
+        u = max_u;
+      }
+      else{
+        u = 0;
+      }
+      break;
+    case BANG2:
+      /* Bang-bang control with bipolar output */
+      if(e>0){
+        u = max_u;
+      }
+      else if (e<0){
+        u = -max_u;
+      }
+      else{
+        u = 0;
+      }
+      break;
+    case BANGH:
+      /* Bang-bang control with hysteresis */
+      const float delta = 0.05;
+
+      if(e>delta){
+        u = max_u;
+      }
+      else if (e<-delta){
+        u = -max_u;
+      }
+      else{
+        u = u_m1;
+      }
+      u_m1 = u;
+      break;
+    case P:
+    /* Proportional control */
+      u = Kp*e;
+      break;
+    case PID:
+
+      /* Compute control signal */
+      u = u_m1 + K0*e + K1*e_m1 + K2*e_m2;
+
+      /* store values for next iterations */
+      e_m2 = e_m1;
+      e_m1 = e;
+      u_m1 = u;
+
+      // Clip the control signal to avoid saturation
+      if(u_m1>max_u){
+        u_m1 = max_u;
+      }
+      if (u_m1<-max_u){
+        u_m1 = -max_u;
+      }
+      break;
   }
-  else if (e<0){
-    u = -max_u;
-    u = 0;
-  }
-  else{
-    u = 0;
-  }
+
   return u;
-  #elif CONTROLLER==BANG2
-  if(e>0){
-    u = max_u;
-  }
-  else if (e<0){
-    u = -max_u;
-  }
-  else{
-    u = 0;
-  }
-  return u;
-  #elif CONTROLLER==BANGH
-  if(e>0+delta){
-    u = max_u;
-  }
-  else if (e<0-delta){
-    u = -max_u;
-  }
-  else{
-    u = u_m1;
-  }
-  u_m1 = u;
-  return u;
-
-  #elif CONTROLLER==P
-  return Kp*e;
-  #elif CONTROLLER == PID
-
-  /* Compute control signal */
-  u = u_m1 + K0*e + K1*e_m1 + K2*e_m2;
-
-  /* store values for next iterations */
-  e_m2 = e_m1;
-  e_m1 = e;
-  u_m1 = u;
-
-
-  // Clip the control signal to avoid saturation
-  if(u_m1>max_u)
-  u_m1 = max_u;
-  if (u_m1<-max_u)
-  u_m1 = -max_u;
-
-  return u;
-
-  #else
-  return setPoint;
-  #endif
-
 }
