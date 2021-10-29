@@ -215,6 +215,7 @@ float controlAction(controller_t type, float setPoint, float feedback)
   const float Ti = FLT_MAX;
   const float Td = 0.0;     // Td - differential time
   const float h = 0.050;    // h  - sampling interval
+  const float delta = 0.05;
 
   // Auxiliary constants for the PID controller
   static const float K0 = Kp*(1+h/Ti+Td/h);
@@ -260,7 +261,6 @@ float controlAction(controller_t type, float setPoint, float feedback)
       break;
     case BANGH:
       /* Bang-bang control with hysteresis */
-      const float delta = 0.05;
 
       if(e>delta){
         u = max_u;
