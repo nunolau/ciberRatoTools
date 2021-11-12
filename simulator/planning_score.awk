@@ -74,11 +74,13 @@ END {
      for (t in visited) {
          if (visited[t]!=1) {
             print "Target " t " not visited"
-            nonVisitedTargets=0
+            nonVisitedTargets++
          }
          nTargets++
      }
 
-     score = bestDist/((pathind-2)*2) - nonVisitedTargets/nTargets
+     robDist = (pathind-2)*2
+     if(robDist < bestDist) robDist=bestDist
+     score = bestDist/robDist - nonVisitedTargets/nTargets
      print "Planning score: " score
 }
