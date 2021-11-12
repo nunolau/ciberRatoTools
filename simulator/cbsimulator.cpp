@@ -69,18 +69,18 @@ static const char *LAB =
 		"\t<Target X=\"25\" Y=\"7.0\" Radius=\"1.0\"/>\n"
 //		"\t<Row  Pos=\"12\" Pattern=\"                 |                       \"  />\n"  
 		"\t<Row  Pos=\"12\" Pattern=\"  |        |     |                 |     \"  />\n"  
-		"\t<Row  Pos=\"11\" Pattern=\"  ·--·  ·--·--·  ·  ·--·--.--·--·  ·--·--\"  />\n"  
+		"\t<Row  Pos=\"11\" Pattern=\"  ï¿½--ï¿½  ï¿½--ï¿½--ï¿½  ï¿½  ï¿½--ï¿½--.--ï¿½--ï¿½  ï¿½--ï¿½--\"  />\n"  
 		"\t<Row  Pos=\"10\" Pattern=\"  |        |              |        |     \"  />\n"    
-		"\t<Row  Pos=\"9\"  Pattern=\"--·--·  ·--·  ·--·--·--·  ·--·--·  ·--·  \"  />\n"    
+		"\t<Row  Pos=\"9\"  Pattern=\"--ï¿½--ï¿½  ï¿½--ï¿½  ï¿½--ï¿½--ï¿½--ï¿½  ï¿½--ï¿½--ï¿½  ï¿½--ï¿½  \"  />\n"    
 		"\t<Row  Pos=\"8\"  Pattern=\"        |        |     |     |     |  |  \"  />\n"    
-		"\t<Row  Pos=\"7\"  Pattern=\"--·--·--·  ·--·  .--·--·--·  ·  ·  ·--·  \"  />\n"    
+		"\t<Row  Pos=\"7\"  Pattern=\"--ï¿½--ï¿½--ï¿½  ï¿½--ï¿½  .--ï¿½--ï¿½--ï¿½  ï¿½  ï¿½  ï¿½--ï¿½  \"  />\n"    
 		"\t<Row  Pos=\"6\"  Pattern=\"  |                                      \"  />\n"    
-		"\t<Row  Pos=\"5\"  Pattern=\"  ·--·--·--·--·--·--·  ·  ·--·  ·--·--·--\"  />\n"    
+		"\t<Row  Pos=\"5\"  Pattern=\"  ï¿½--ï¿½--ï¿½--ï¿½--ï¿½--ï¿½--ï¿½  ï¿½  ï¿½--ï¿½  ï¿½--ï¿½--ï¿½--\"  />\n"    
 		"\t<Row  Pos=\"4\"  Pattern=\"     |  |              |     |     |     \"  />\n"    
 //		"\t<Row  Pos=\"4\"  Pattern=\"        |              |     |     |     \"  />\n"    
-		"\t<Row  Pos=\"3\"  Pattern=\"  ·--·  ·--·--·--·--·  ·--·  ·  ·--·  ·  \"  />\n"    
+		"\t<Row  Pos=\"3\"  Pattern=\"  ï¿½--ï¿½  ï¿½--ï¿½--ï¿½--ï¿½--ï¿½  ï¿½--ï¿½  ï¿½  ï¿½--ï¿½  ï¿½  \"  />\n"    
 		"\t<Row  Pos=\"2\"  Pattern=\"  |                 |           |     |  \"  />\n"    
-		"\t<Row  Pos=\"1\"  Pattern=\"  ·--·  ·--·--·--·  ·--·--·  ·--·  ·--·  \"  />\n"    
+		"\t<Row  Pos=\"1\"  Pattern=\"  ï¿½--ï¿½  ï¿½--ï¿½--ï¿½--ï¿½  ï¿½--ï¿½--ï¿½  ï¿½--ï¿½  ï¿½--ï¿½  \"  />\n"    
 		"\t<Row  Pos=\"0\"  Pattern=\"  |  |           |           |     |     \"  />\n"    
 /*		"\t<Wall Height=\"5.0\">\n"
 			"\t\t<Corner X=\"10.0\" Y=\"6.0\"/>\n"
@@ -128,7 +128,7 @@ cbSimulator::cbSimulator()
 {
 	lab = 0;
 	curCycle = 0;
-    endCycle = 3000; // provisório
+    endCycle = 3000; // provisï¿½rio
 	cycle = 50;
 
 	curState = nextState = INIT;
@@ -1037,6 +1037,9 @@ void cbSimulator::UpdateState()
              break;
           case 2:
             robot->updateStateMapping();        // MAPPING
+            break;
+          case 3:
+            robot->updateStatePlanning();        // PLANNING
             break;
           default:
             robot->updateStateCompetitive();    // COMPETITIVE

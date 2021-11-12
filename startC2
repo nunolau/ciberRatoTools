@@ -3,7 +3,8 @@
 ARGS="--param ../Labs/rmi-2122/C2-config.xml"
 ARGS+=" --lab ../Labs/rmi-2122/C2-lab.xml"
 ARGS+=" --grid ../Labs/rmi-2122/C2-grid.xml"
-(cd simulator; ./simulator $ARGS --scoring 2) &
+ARGS+=" --scoring 2"
+(cd simulator; ./simulator $ARGS ) &
 
 sleep 1
 
