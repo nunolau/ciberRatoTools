@@ -2,8 +2,19 @@
 BEGIN {
    FS=""
    line=1;
-   score=0;
+   margin=2
+   discount=0.85
+   for(di=-margin; di<=margin; di++) {
+        for(dj=-margin; dj<=margin; dj++) {
+            score[di][dj]=0;
+        }
+   }
 }
+
+
+function abs(v) {v += 0; return v < 0 ? -v : v}
+function isnum(x)   { return x+0 == x }
+
 
 FNR==NR {
    a[NR]=$0
@@ -13,18 +24,35 @@ FNR==NR {
 
 {
      nmap=split($0,map,"") 
-     nmapref=split(a[line],mapref,"") 
 
      if (length(map)!=55) {
          print "line length is not correct!"
      }
 
-     for(i=1;i<=length(a[line]);i++) {
-         if(map[i]!=" ") {
-              if(mapref[i]==map[i]) {
-                   score+=10  # correctly mapped
-              }
-              else score-=5   # uncorrectly mapped
+     for(di=-margin; di<=margin; di++) {
+         if ((line+di) < 0) continue
+         nmapref=split(a[line+di],mapref,"") 
+         # to allow to have planning.out as input to this script (planning.out has the map, with 55 columns, but it also has other stuff)
+         if (length(a[line+di])!=55) {
+            continue
+         }
+         for(dj=-margin; dj<=margin; dj++) {
+             #if(di==0 && dj==0) print "line " line
+             for(i=1;i<=length(a[line+di]);i++) {
+                 if ((i+dj)<0) continue
+                 if ((i+dj)>=length(map)) continue
+                 if(map[i+dj]!=" ") {
+                      if(mapref[i]==map[i+dj]) {
+                           score[di][dj]+=10  # correctly mapped
+                           #print "+10"
+                      }
+                      else { 
+                           score[di][dj]-=5   # uncorrectly mapped
+                           #print "-5"
+                      }
+                 }
+             }
+             #if(di==0 && dj==0 ) print "score " score[0][0]
          }
      }
      line++
@@ -34,5 +62,16 @@ END {
     if (line!=28) {
          print "number of lines is not correct!"
     }
-    print "mapping score:" score
+    scoremax=-200000
+    for(di=-margin; di<=margin; di++) {
+         for(dj=-margin; dj<=margin; dj++) {
+             #print "mapping score " di " " dj " :" score[di][dj]
+             if (score[di][dj] > scoremax) {
+                 scoremax = score[di][dj]
+                 distmax = abs(di)+abs(dj)
+             }
+                 
+          }
+    }
+    print "mapping score:" (scoremax)*discount^(distmax) 
 }

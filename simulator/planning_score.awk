@@ -30,6 +30,7 @@ FNR==NR {
     if (pathind==1) {
         if(x!=0 || y!=0) {
              print "Path does not start at 0 0"
+             print "Planning score: " 0
              exit 1
         }
         visited[0]=1
@@ -40,6 +41,7 @@ FNR==NR {
         if(mapref[prevY+movdirY+14][prevX+movdirX+28]!="X") {
              print "prevY",prevY, "prevX", prevX ,"movY", movdirY ,"movX", movdirX
              print "Error in path"
+             print "Planning score: " 0
              exit 1
         }
         if(mapref[y+14][x+28] ~ /[0-9]/) {
@@ -66,6 +68,7 @@ END {
 
      if(x!=0 || y!=0) {
            print "Path does not finish at 0 0"
+           print "Planning score: " 0
            exit 1
      }
 
