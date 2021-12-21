@@ -1,0 +1,10 @@
+*.o
+*.so
+*.so.*
+*.log
+moc_*.cpp
+ui_*.h
+*.class
+*.pyc
+*.out
+*.jar
