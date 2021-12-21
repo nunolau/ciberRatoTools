@@ -158,6 +158,13 @@ extern bool            IsBumperReady(void);
 /* active when robot collides */
 extern bool           GetBumperSensor(void);     
 
+/*! Indicates if score can be retrieved using score sensor 
+ */
+bool IsScoreReady(void);
+
+/* returns current score */
+int GetScoreSensor(void);
+
 /*! Indicates if a new GPS measure has arrived. 
  *  The value of GetX, GetY and GetDir is invalid when IsGPSReady returns false
  */
