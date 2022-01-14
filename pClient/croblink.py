@@ -40,7 +40,8 @@ class CRobLink:
         self.status = handler.status
         if self.status==0:
             self.nBeacons = handler.nBeacons
-            #print "nBeacons", self.nBeacons
+            self.simTime  = handler.simTime
+            #print("nBeacons", self.nBeacons)
 
     def readSensors(self):
         data, (host,port) = self.sock.recvfrom(4096)
@@ -101,7 +102,7 @@ class CRobLinkAngs(CRobLink):
         
         self.sock.sendto(msg.encode(), (host, UDP_PORT))  # TODO condider host arg
         data, (host,self.port) = self.sock.recvfrom(1024)
-        #print "received message:", data, " port ", self.port
+        print("received message:", data, " port ", self.port)
 
         parser = sax.make_parser()
         
@@ -120,7 +121,9 @@ class CRobLinkAngs(CRobLink):
         self.status = handler.status
         if self.status==0:
             self.nBeacons = handler.nBeacons
-            #print "nBeacons", self.nBeacons
+            self.simTime  = handler.simTime
+            #print("nBeacons", self.nBeacons)
+            #print("simTime", self.simTime)
 
 class CMeasures:
 
@@ -182,6 +185,7 @@ class StructureHandler(sax.ContentHandler):
             self.status = -1
         elif name == "Parameters":
             self.nBeacons = attrs["NBeacons"]
+            self.simTime = attrs["SimTime"]
         elif name=="Measures":
             self.measures.time = int(attrs["Time"])
         elif name=="Sensors":
