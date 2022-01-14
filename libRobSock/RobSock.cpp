@@ -190,6 +190,18 @@ bool GetBumperSensor(void)
     return robLink->collision();
 }
 
+bool IsScoreReady(void)
+{
+    assert(robLink!=0);
+    return robLink->scoreReady();
+}
+
+int GetScoreSensor(void)
+{
+    assert(robLink!=0);
+    return robLink->score();
+}
+
 
 void RequestGroundSensor(void)
 {
