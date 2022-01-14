@@ -102,7 +102,7 @@ class CRobLinkAngs(CRobLink):
         
         self.sock.sendto(msg.encode(), (host, UDP_PORT))  # TODO condider host arg
         data, (host,self.port) = self.sock.recvfrom(1024)
-        print("received message:", data, " port ", self.port)
+        #print("received message:", data, " port ", self.port)
 
         parser = sax.make_parser()
         
