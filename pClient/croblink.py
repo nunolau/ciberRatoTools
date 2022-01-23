@@ -44,8 +44,20 @@ class CRobLink:
             #print("nBeacons", self.nBeacons)
 
     def readSensors(self):
-        data, (host,port) = self.sock.recvfrom(4096)
-        d2 = data[:-1]
+        d2 = None
+        # Sets the blocking flag false and reads buffer until empty
+        self.sock.setblocking(0)
+        while True:
+            try:
+                data, (host,port) = self.sock.recvfrom(4096)
+                d2 = data[:-1]
+            except BlockingIOError as err:
+                break
+        self.sock.setblocking(1)
+        # In case no data was available, blocks till next read
+        if not d2:
+            data, (host,port) = self.sock.recvfrom(4096)
+            d2 = data[:-1]
 
         #print "RECV : \"" + d2 +'"'
         parser = sax.make_parser()
