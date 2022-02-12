@@ -98,13 +98,14 @@ double  cbGPSSensor::offsetX   = randUniform(0.0, 1000.0);
 double  cbGPSSensor::offsetY   = randUniform(0.0, 1000.0);
 double  cbGPSSensor::offsetDeg = 0.0;  // a different value would not be consistent with XY reference frame nor with compass
 
-bool    cbRobot::GPSOn = false;
-bool    cbRobot::beaconSensorOn = false;
-bool    cbRobot::GPSDirOn = false;
-bool    cbRobot::scoreSensorOn = false;
-bool    cbRobot::showActions = true;
-bool    cbRobot::showMeasures = true;
-bool    cbRobot::ignoreOthers = false;
+bool    cbRobot::GPSOn           = false;
+bool    cbRobot::beaconSensorOn  = false;
+bool    cbRobot::compassSensorOn = true;
+bool    cbRobot::GPSDirOn        = false;
+bool    cbRobot::scoreSensorOn   = false;
+bool    cbRobot::showActions     = true;
+bool    cbRobot::showMeasures    = true;
+bool    cbRobot::ignoreOthers    = false;
 
 //Scores
 int     cbRobot::returnTimePenalty = 25;
@@ -215,6 +216,10 @@ int main(int argc, char *argv[])
             // wait until second pass of command line parsing
             p+=1;
 		}
+		else if (strcmp(argv[p], "--compass") == 0)	{
+            // wait until second pass of command line parsing
+            p+=1;
+		}
 		else if (strcmp(argv[p], "--showactions") == 0)	{
             // wait until second pass of command line parsing
             p+=1;
@@ -294,6 +299,11 @@ int main(int argc, char *argv[])
         else if (strcmp(argv[p], "--beacon") == 0)	{
             cbRobot::beaconSensorOn = true;
             simulator.setBeaconSensor(true);
+            p+=1;
+		}
+        else if (strcmp(argv[p], "--compass") == 0)	{
+            cbRobot::compassSensorOn = true;
+            simulator.setCompassSensor(true);
             p+=1;
 		}
         else if (strcmp(argv[p], "--showactions") == 0)	{

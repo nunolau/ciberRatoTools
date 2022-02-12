@@ -16,6 +16,8 @@ class CRobLink:
 
         self.sock = socket.socket(socket.AF_INET, # Internet
                              socket.SOCK_DGRAM) # UDP
+
+        self.sock.settimeout(2.0)
         
         msg = '<Robot Id="'+str(robId)+'" Name="'+robName+'" />'
         
@@ -44,10 +46,13 @@ class CRobLink:
             #print("nBeacons", self.nBeacons)
 
     def readSensors(self):
-        data, (host,port) = self.sock.recvfrom(4096)
+        try:
+            data, (host,port) = self.sock.recvfrom(4096)
+        except socket.timeout:
+            exit(1)
         d2 = data[:-1]
 
-        #print "RECV : \"" + d2 +'"'
+        #print("RECV : \"" + d2.decode() +'"')
         parser = sax.make_parser()
         # Tell it what handler to use
         handler = StructureHandler()
@@ -93,6 +98,8 @@ class CRobLinkAngs(CRobLink):
         self.sock = socket.socket(socket.AF_INET, # Internet
                              socket.SOCK_DGRAM) # UDP
         
+        self.sock.settimeout(2.0)
+
         msg = '<Robot Id="'+str(robId)+'" Name="'+robName+'">'
         for ir in range(NUM_IR_SENSORS):
             msg+='<IRSensor Id="'+str(ir)+'" Angle="'+str(angs[ir])+'" />'

@@ -80,6 +80,7 @@ cbRobot::cbRobot(const double irSensorAngle[]) : cbClient()
 
 	//GPSOn = true;
 	//beaconSensorOn = false;
+	//compassSensorOn = true;
 	//GPSDirOn = false;
 	GPSSensor   = new cbGPSSensor(this, "GPS");
 	sensors.push_back(GPSSensor);
@@ -1405,8 +1406,10 @@ void cbRobot::sendSensors()
 	if(!collisionSensor->requestable || collisionSensor->requested)
 	     n += sprintf(xml+n, " Collision=\"%s\"", collisionSensor->Value()?"Yes":"No");
 
-	if(!compassSensor->requestable || compassSensor->requested)
-	     n += sprintf(xml+n, " Compass=\"%g\"", compassSensor->Degrees());
+    if(compassSensorOn) {
+	     if(!compassSensor->requestable || compassSensor->requested)
+	         n += sprintf(xml+n, " Compass=\"%g\"", compassSensor->Degrees());
+    }
 
 	if(!groundSensor->requestable || groundSensor->requested)
 	     n += sprintf(xml+n, " Ground=\"%d\"", groundSensor->Value());

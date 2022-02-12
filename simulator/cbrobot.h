@@ -187,6 +187,7 @@ public:
 	static bool GPSOn;
 	static bool GPSDirOn;
 	static bool beaconSensorOn;
+	static bool compassSensorOn;
 	static bool scoreSensorOn;
 	static bool showActions;
     static bool showMeasures;

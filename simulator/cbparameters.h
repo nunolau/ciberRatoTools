@@ -65,6 +65,7 @@ public:
 
 	bool   GPSOn;
 	bool   beaconSensorOn;
+	bool   compassSensorOn;
 	bool   scoreSensorOn;
 
 	bool   showActions;

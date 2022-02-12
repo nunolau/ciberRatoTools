@@ -34,13 +34,14 @@ cbParameters::cbParameters()
     // WARNING: Most of These value may be overwriten by the ones provided in XML
     //          by the default parameters file in cbsimulator.cpp
         
-	simTime        = 2000;   
-	cycleTime      = 50;     
-	keyTime        = 1500;  
-	GPSOn          = cbRobot::GPSOn;
-	beaconSensorOn = cbRobot::beaconSensorOn;
-	scoreSensorOn  = cbRobot::scoreSensorOn;
-	showActions    = cbRobot::showActions;
+	simTime         = 2000;   
+	cycleTime       = 50;     
+	keyTime         = 1500;  
+	GPSOn           = cbRobot::GPSOn;
+	beaconSensorOn  = cbRobot::beaconSensorOn;
+	compassSensorOn = cbRobot::compassSensorOn;
+	scoreSensorOn   = cbRobot::scoreSensorOn;
+	showActions     = cbRobot::showActions;
 
 	//Noise
 	motorsNoise           = cbMotor::noise;
@@ -89,11 +90,13 @@ int cbParameters::toXml(char *buff, int len)
 			"\t\tMotorsNoise=\"%g\" KeyTime=\"%u\"\n"
 			"\t\tGPS=\"%s\" GPSLinNoise=\"%g\" GPSDirNoise=\"%g\" \n"
 			"\t\tBeaconSensor=\"%s\" \n"
+			"\t\tCompassSensor=\"%s\" \n"
                         "\t\tScoreSensor=\"%s\" ShowActions=\"%s\" NBeacons=\"%d\" \n",
 			simTime, cycleTime, 
 			compassNoise, beaconNoise, obstacleNoise, motorsNoise,
 			keyTime, (GPSOn?"On":"Off"), gpsLinNoise, gpsDirNoise,
 			(beaconSensorOn?"On":"Off"),
+			(compassSensorOn?"On":"Off"),
                         (scoreSensorOn?"On":"Off"),(showActions?"True":"False"),
 			nBeacons);
 

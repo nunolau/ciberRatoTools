@@ -85,6 +85,12 @@ bool cbParamHandler::startElement( const QString&, const QString&, const QString
             if( beacon == "On") param->beaconSensorOn = true;
             else param->beaconSensorOn = false;
         }
+        const QString &compass = attr.value(QString("CompassSensor"));
+        if (!compass.isNull())
+        {
+            if( compass == "On") param->compassSensorOn = true;
+            else param->compassSensorOn = false;
+        }
 		const QString &gpsLinNoise = attr.value(QString("GPSLinNoise"));
 		if (!gpsLinNoise.isNull()) param->gpsLinNoise = gpsLinNoise.toDouble();
 		const QString &gpsDirNoise = attr.value(QString("GPSDirNoise"));
