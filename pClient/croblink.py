@@ -63,7 +63,7 @@ class CRobLink:
 #        except SAXParseException:
 #            status = -1
 #            return 
-        self.status = handler.status
+        self.status    = handler.status
         self.measures  = handler.measures
         
     def driveMotors(self, lPow, rPow):
@@ -139,8 +139,8 @@ class CMeasures:
         self.compass=0.0; 
         self.irSensorReady=[False for i in range(NUM_IR_SENSORS)]
         self.irSensor=[0.0 for i in range(NUM_IR_SENSORS)]
-        self.beaconReady = False   # TODO consider more than one beacon
-        self.beacon = (False, 0.0)
+        self.beaconReady = [] # False   # TODO consider more than one beacon
+        self.beacon =      [] # (False, 0.0)
         self.time = 0
 
         self.groundReady = False
@@ -218,18 +218,20 @@ class StructureHandler(sax.ContentHandler):
             else: 
                 self.status = -1
         elif name == "BeaconSensor":
-            id = attrs["Id"]
+            id = int(attrs["Id"])
             #if id<self.measures.beaconReady.len():
-            if 1:
-                self.measures.beaconReady=True
+            if id==len(self.measures.beacon):   # only works if BeaconSensor is not requestable  TODO: make it work for requestable beaconSensors!
+                self.measures.beaconReady.append(True)
                 if attrs["Value"] == "NotVisible":
                     #self.measures.beaconReady[id]=(False,0.0)
-                    self.measures.beacon=(False,0.0)
+                    self.measures.beacon.append((False,0.0))
                 else:
                     #self.measures.beaconReady[id]=(True,attrs["Value"])
-                    self.measures.beacon=(True,float(attrs["Value"]))
+                    self.measures.beacon.append( (True,float(attrs["Value"])) )
             else:
                 self.status = -1
+                print('BeaconSensor cannot be correctly parsed', id, len(self.measures.beacon))
+                quit()
         elif name == "GPS":
             if "X" in attrs.keys():
                 self.measures.gpsReady = True
