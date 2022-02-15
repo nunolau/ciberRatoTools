@@ -12,7 +12,7 @@
 		ObstacleLatency="0" BeaconLatency="0" 
 		GroundLatency="0" CompassLatency="0"
 		CollisionLatency="0"
-		BeaconAperture="3.141593"
+		BeaconAperture="1.5708"
 		ReturnTimePenalty="25" ArrivalTimePenalty="100" 
 		CollisionWallPenalty="0" CollisionRobotPenalty="0" 
 		TargetReward="100" HomeReward="100"
